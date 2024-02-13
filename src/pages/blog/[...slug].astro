@@ -1,0 +1,33 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+
+import MarkdownLayout from "@layouts/MarkdownLayout.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+type Props = CollectionEntry<"posts">;
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<MarkdownLayout {...post.data}>
+  <h1 class="title font-medium text-2xl tracking-tighter max-w-[650px]">
+    {post.data.title}
+  </h1>
+  <div
+    class="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]"
+  >
+    <p class="text-sm text-neutral-600 dark:text-neutral-400">
+      {post.data.publishedAt.toLocaleDateString()}
+    </p>
+  </div>
+  <article class="prose prose-neutral dark:prose-invert">
+    <Content />
+  </article>
+</MarkdownLayout>
