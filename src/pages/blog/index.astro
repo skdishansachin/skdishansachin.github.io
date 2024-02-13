@@ -1,13 +1,17 @@
 ---
 import Layout from "@layouts/Layout.astro";
 
+const title = "Blog | Dishan Sachin";
+const description = "Check out my thoughts on software development, tools, and other cool stuff.";
+
 import { getCollection } from "astro:content";
+
 const posts = await getCollection("posts", ({data}) => {
     return data.status !== "draft";
 });
 ---
 
-<Layout title="Blog | Dishan Sachin">
+<Layout title={title} description={description}>
   <h1 class="font-medium text-2xl mb-8 tracking-tighter">read my blog</h1>
   {
     posts.map((post) => (
