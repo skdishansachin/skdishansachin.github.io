@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="en" class="text-black bg-white dark:text-white dark:bg-[#111010]"> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="generator" content="Astro v4.3.7"><!-- Canonical URL --><link rel="canonical" href="http://localhost:4321/blog/first-post/"><!-- Primary Meta Tags --><title>Understanding SOLID Principles</title><meta name="title" content="Understanding SOLID Principles"><meta name="description" content="This is the first post on the blog."><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="http://localhost:4321/blog/first-post/"><meta property="og:title" content="Understanding SOLID Principles"><meta property="og:description" content="This is the first post on the blog."><!-- <meta property="og:image" content={new URL(image, Astro.url)} /> --><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="http://localhost:4321/blog/first-post/"><meta property="twitter:title" content="Understanding SOLID Principles"><meta property="twitter:description" content="This is the first post on the blog."><!-- <meta property="twitter:image" content={new URL(image, Astro.url)} /> --><!-- vercel speed insights --><vercel-speed-insights data-props="{}" data-params="{&#34;slug&#34;:&#34;first-post&#34;}" data-pathname="/blog/first-post/"></vercel-speed-insights> <link rel="stylesheet" href="/_astro/_slug_.2XTZVihW.css" /><script type="module">var l="@vercel/speed-insights",f="1.0.9",v=()=>{window.si||(window.si=function(...n){(window.siq=window.siq||[]).push(n)})};function w(){return typeof window<"u"}function p(){try{const e="production"}catch{}return"production"}function c(){return p()==="development"}function m(e,n){if(!e||!n)return e;let r=e;try{for(const[s,i]of Object.entries(n)){const t=Array.isArray(i),o=t?i.join("/"):i,u=t?`...${s}`:s,a=new RegExp(`/${S(o)}(?=[/?#]|$)`);a.test(r)&&(r=r.replace(a,`/[${u}]`))}return r}catch{return e}}function S(e){return e.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}var d="https://va.vercel-scripts.com/v1/speed-insights",h=`${d}/script.js`,g=`${d}/script.debug.js`,R="/_vercel/speed-insights/script.js";function y(e={}){var n;if(!w()||e.route===null)return null;v();const s=!!e.dsn?h:R,i=e.scriptSrc||(c()?g:s);if(document.head.querySelector(`script[src*="${i}"]`))return null;e.beforeSend&&((n=window.si)==null||n.call(window,"beforeSend",e.beforeSend));const t=document.createElement("script");return t.src=i,t.defer=!0,t.dataset.sdkn=l+(e.framework?`/${e.framework}`:""),t.dataset.sdkv=f,e.sampleRate&&(t.dataset.sampleRate=e.sampleRate.toString()),e.route&&(t.dataset.route=e.route),e.endpoint&&(t.dataset.endpoint=e.endpoint),e.dsn&&(t.dataset.dsn=e.dsn),c()&&e.debug===!1&&(t.dataset.debug="false"),t.onerror=()=>{console.log(`[Vercel Speed Insights] Failed to load script from ${i}. Please check if any content blockers are enabled and try again.`)},document.head.appendChild(t),{setRoute:o=>{t.dataset.route=o??void 0}}}customElements.define("vercel-speed-insights",class extends HTMLElement{constructor(){super();try{const n=JSON.parse(this.dataset.props??"{}"),r=JSON.parse(this.dataset.params??"{}"),s=m(this.dataset.pathname??"",r);y({route:s,...n,framework:"astro",beforeSend:window.speedInsightsBeforeSend})}catch(n){throw new Error(`Failed to parse SpeedInsights properties: ${n}`)}}});
+</script>
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+		var script = document.createElement('script');
+		script.defer = true;
+		script.src = '/_vercel/insights/script.js';
+		var head = document.querySelector('head');
+		head.appendChild(script);
+	</script></head> <body class="antialiased max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-8 lg:mx-auto"> <main class="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0"> <aside class="-ml-[8px] mb-16 tracking-tight"> <div class="lg:sticky lg:top-20"> <nav class="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative" id="nav"> <div class="flex flex-row space-x-0 pr-10"> <a href="/" class="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2"> home </a><a href="/blog" class="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2"> blog </a> </div> </nav> </div> </aside>   <h1 class="title font-medium text-2xl tracking-tighter max-w-[650px]"> Understanding SOLID Principles </h1> <div class="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]"> <p class="text-sm text-neutral-600 dark:text-neutral-400"> 12/31/2019 </p> </div> <article class="prose prose-neutral dark:prose-invert"> <p>In the realm of software development, writing clean, maintainable, and scalable code is crucial for the success of any project. One set of principles that helps achieve these goals is SOLID, an acronym coined by Robert C. Martin, also known as Uncle Bob. These principles act as guidelines for designing software that is easy to understand, extend, and maintain. Let’s delve into each of the SOLID principles and explore how they can be applied in Java with practical examples.</p>
+<h3 id="1-single-responsibility-principle-srp">1. Single Responsibility Principle (SRP)</h3>
+<p>The Single Responsibility Principle states that a class should have only one reason to change, meaning it should have only one job or responsibility. This promotes high cohesion and reduces coupling between different parts of the system.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> Book</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    private</span><span style="color:#E1E4E8"> String title;</span></span>
+<span class="line"><span style="color:#F97583">    private</span><span style="color:#E1E4E8"> String author;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> String </span><span style="color:#B392F0">getTitle</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#E1E4E8"> title;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> String </span><span style="color:#B392F0">getAuthor</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#E1E4E8"> author;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    public</span><span style="color:#F97583"> void</span><span style="color:#B392F0"> saveToDatabase</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#6A737D">        // Code to save book details to a database</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    public</span><span style="color:#F97583"> void</span><span style="color:#B392F0"> print</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#6A737D">        // Code to print book details</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>In this example, the <code>Book</code> class violates the SRP by combining the responsibilities of representing a book and saving/printing its details. It’s better to separate these concerns into different classes.</p>
+<h3 id="2-openclosed-principle-ocp">2. Open/Closed Principle (OCP)</h3>
+<p>The Open/Closed Principle emphasizes that classes should be open for extension but closed for modification. This means that you should be able to add new functionality to a class without altering its existing code.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#F97583">interface</span><span style="color:#B392F0"> Shape</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    double</span><span style="color:#B392F0"> calculateArea</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> Rectangle</span><span style="color:#F97583"> implements</span><span style="color:#B392F0"> Shape</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    private</span><span style="color:#F97583"> double</span><span style="color:#E1E4E8"> width;</span></span>
+<span class="line"><span style="color:#F97583">    private</span><span style="color:#F97583"> double</span><span style="color:#E1E4E8"> height;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">    // constructor, getters, and setters</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">    @</span><span style="color:#F97583">Override</span></span>
+<span class="line"><span style="color:#F97583">    public</span><span style="color:#F97583"> double</span><span style="color:#B392F0"> calculateArea</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#E1E4E8"> width </span><span style="color:#F97583">*</span><span style="color:#E1E4E8"> height;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> Circle</span><span style="color:#F97583"> implements</span><span style="color:#B392F0"> Shape</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    private</span><span style="color:#F97583"> double</span><span style="color:#E1E4E8"> radius;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">    // constructor, getters, and setters</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">    @</span><span style="color:#F97583">Override</span></span>
+<span class="line"><span style="color:#F97583">    public</span><span style="color:#F97583"> double</span><span style="color:#B392F0"> calculateArea</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#E1E4E8"> Math.PI </span><span style="color:#F97583">*</span><span style="color:#E1E4E8"> radius </span><span style="color:#F97583">*</span><span style="color:#E1E4E8"> radius;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>Here, if we want to add a new shape, say Triangle, we can create a new class implementing the <code>Shape</code> interface without modifying existing code.</p>
+<h3 id="3-liskov-substitution-principle-lsp">3. Liskov Substitution Principle (LSP)</h3>
+<p>The Liskov Substitution Principle states that objects of a superclass should be replaceable with objects of its subclass without affecting the correctness of the program. In simpler terms, a subclass should behave in such a way that it does not surprise the client.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> Rectangle</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    protected</span><span style="color:#F97583"> int</span><span style="color:#E1E4E8"> width;</span></span>
+<span class="line"><span style="color:#F97583">    protected</span><span style="color:#F97583"> int</span><span style="color:#E1E4E8"> height;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">    // constructor, getters, and setters</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">    public</span><span style="color:#F97583"> int</span><span style="color:#B392F0"> calculateArea</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#E1E4E8"> width </span><span style="color:#F97583">*</span><span style="color:#E1E4E8"> height;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> Square</span><span style="color:#F97583"> extends</span><span style="color:#B392F0"> Rectangle</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    @</span><span style="color:#F97583">Override</span></span>
+<span class="line"><span style="color:#F97583">    public</span><span style="color:#F97583"> void</span><span style="color:#B392F0"> setWidth</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">int</span><span style="color:#FFAB70"> width</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#79B8FF">        this</span><span style="color:#E1E4E8">.width </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> width;</span></span>
+<span class="line"><span style="color:#79B8FF">        this</span><span style="color:#E1E4E8">.height </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> width;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">    @</span><span style="color:#F97583">Override</span></span>
+<span class="line"><span style="color:#F97583">    public</span><span style="color:#F97583"> void</span><span style="color:#B392F0"> setHeight</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">int</span><span style="color:#FFAB70"> height</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#79B8FF">        this</span><span style="color:#E1E4E8">.width </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> height;</span></span>
+<span class="line"><span style="color:#79B8FF">        this</span><span style="color:#E1E4E8">.height </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> height;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>In this example, even though a <code>Square</code> is a type of <code>Rectangle</code>, modifying the width or height of a <code>Square</code> breaks the LSP because it changes the behavior of the class.</p>
+<h3 id="4-interface-segregation-principle-isp">4. Interface Segregation Principle (ISP)</h3>
+<p>The Interface Segregation Principle advocates for clients to not be forced to depend on interfaces they don’t use. It suggests breaking down large interfaces into smaller, more specific ones.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#F97583">interface</span><span style="color:#B392F0"> Worker</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    void</span><span style="color:#B392F0"> work</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">    void</span><span style="color:#B392F0"> eat</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> Robot</span><span style="color:#F97583"> implements</span><span style="color:#B392F0"> Worker</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    @</span><span style="color:#F97583">Override</span></span>
+<span class="line"><span style="color:#F97583">    public</span><span style="color:#F97583"> void</span><span style="color:#B392F0"> work</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#6A737D">        // Code for robot to work</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">    @</span><span style="color:#F97583">Override</span></span>
+<span class="line"><span style="color:#F97583">    public</span><span style="color:#F97583"> void</span><span style="color:#B392F0"> eat</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#6A737D">        // Robots don't eat, this method is unnecessary for them</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>In this case, the <code>Robot</code> class is forced to implement the <code>eat()</code> method, which is irrelevant to it. It’s better to have separate interfaces like <code>Workable</code> and <code>Feedable</code>.</p>
+<h3 id="5-dependency-inversion-principle-dip">5. Dependency Inversion Principle (DIP)</h3>
+<p>The Dependency Inversion Principle suggests that high-level modules should not depend on low-level modules but both should depend on abstractions. It encourages the use of interfaces or abstract classes to decouple classes from their dependencies.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#F97583">interface</span><span style="color:#B392F0"> Reader</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    String </span><span style="color:#B392F0">read</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> FileReader</span><span style="color:#F97583"> implements</span><span style="color:#B392F0"> Reader</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    @</span><span style="color:#F97583">Override</span></span>
+<span class="line"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> String </span><span style="color:#B392F0">read</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#6A737D">        // Code to read from a file</span></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#9ECBFF"> "Data read from file"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> DatabaseReader</span><span style="color:#F97583"> implements</span><span style="color:#B392F0"> Reader</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    @</span><span style="color:#F97583">Override</span></span>
+<span class="line"><span style="color:#F97583">    public</span><span style="color:#E1E4E8"> String </span><span style="color:#B392F0">read</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#6A737D">        // Code to read from a database</span></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#9ECBFF"> "Data read from database"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>By depending on the <code>Reader</code> interface rather than concrete implementations, classes can be easily swapped out or extended without affecting the client code.</p>
+<p>In conclusion, adhering to SOLID principles leads to more maintainable, flexible, and robust code. By applying these principles in Java, developers can write code that is easier to understand, extend, and maintain, ultimately leading to higher-quality software products.</p> </article>  <div class="pt-5"> <a href="/blog" class="underline">Take me back</a> </div>  </main> </body></html>
