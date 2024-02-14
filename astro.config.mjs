@@ -4,6 +4,7 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://dishansachin.vercel.app",
   output: "static",
   adapter: vercel({
     webAnalytics: {
