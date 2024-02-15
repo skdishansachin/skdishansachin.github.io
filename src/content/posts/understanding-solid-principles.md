@@ -1,9 +1,9 @@
 ---
 title: Understanding SOLID Principles
-publishedAt: 2020-01-01
-author: John Doe
+publishedAt: 2024-02-15
+author: Dishan Sachin
 status: featured
-description: 'This is the first post on the blog.'
+description: "What is SOLID? How can we apply these principles in Java? Let's explore the Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion principles with practical examples."
 ---
 
 In the realm of software development, writing clean, maintainable, and scalable code is crucial for the success of any project. One set of principles that helps achieve these goals is SOLID, an acronym coined by Robert C. Martin, also known as Uncle Bob. These principles act as guidelines for designing software that is easy to understand, extend, and maintain. Let's delve into each of the SOLID principles and explore how they can be applied in Java with practical examples.
@@ -159,3 +159,5 @@ class DatabaseReader implements Reader {
 By depending on the `Reader` interface rather than concrete implementations, classes can be easily swapped out or extended without affecting the client code.
 
 In conclusion, adhering to SOLID principles leads to more maintainable, flexible, and robust code. By applying these principles in Java, developers can write code that is easier to understand, extend, and maintain, ultimately leading to higher-quality software products.
+
+## And now you know SOLID principles!
