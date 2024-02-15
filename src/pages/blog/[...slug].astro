@@ -14,6 +14,10 @@ type Props = CollectionEntry<"posts">;
 
 const post = Astro.props;
 const { Content } = await post.render();
+
+if (post.data.status === "draft") {
+  return Astro.redirect('/blog');
+}
 ---
 
 <MarkdownLayout {...post.data}>
