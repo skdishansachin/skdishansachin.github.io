@@ -2,7 +2,7 @@
 title: Understanding SOLID Principles
 publishedAt: 2020-01-01
 author: John Doe
-status: draft
+status: featured
 description: 'This is the first post on the blog.'
 ---
 
