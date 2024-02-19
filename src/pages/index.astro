@@ -8,23 +8,25 @@ const posts = await getCollection("posts", ({ data }) => {
 });
 ---
 
-<Layout title="Dishan Sachin" description="Developer, writer, and creator.">
+<Layout
+  title="Dishan Sachin"
+  description="Hi there I am Dishan Sachin. I am a backend engineer."
+>
   <section>
     <h1 class="font-medium text-2xl mb-8 tracking-tighter">
-      hey, I'm Dishan Sachin 👋
+      Hey, I'm Dishan Sachin 👋
     </h1>
-
-    <!-- <div class="my-8 flex flex-col space-y-4 w-full">
-      featured posts
-    </div> -->
-
     <div class="prose prose-neutral dark:prose-invert">
-      <p>Developer, writer, and creator.</p>
       <p>
-        I'm a backend engineer and a writer from Sri Lanka. I work at Ruzzz and I love creating products and telling their stories. I'm pretty good at Laravel (PHP) and Django (Python), and I'm not just into building stuff - I also like to understand how things work and share my knowledge with others.
+        I'm a backend engineer and a writer from Sri Lanka. I work at Ruzzz and
+        I love creating products and telling their stories. I'm pretty good at
+        Laravel (PHP) and Django (Python), and I'm not just into building stuff
+        - I also like to understand how things work and share my knowledge with
+        others.
       </p>
     </div>
     <div class="my-8 flex flex-col space-y-4 w-full">
+      <h2 class="font-medium text-2xl mb-5 tracking-tighter">Featured posts</h2>
       {
         posts.map((post) => (
           <div class="group">
@@ -62,7 +64,9 @@ const posts = await getCollection("posts", ({ data }) => {
     </div>
     <div class="prose prose-neutral dark:prose-invert">
       <p>
-        I'm always looking for ways to give back to the open-source community. Whether it's decoding complex code or making tricky concepts easier to understand, I'm up for the challenge.
+        I'm always looking for ways to give back to the open-source community.
+        Whether it's decoding complex code or making tricky concepts easier to
+        understand, I'm up for the challenge.
       </p>
       <Footer />
     </div>
