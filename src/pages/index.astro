@@ -1,13 +1,15 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import { lightFormat } from "date-fns";
 
 const title = "Dishan Sachin";
-const description = "Check out my thoughts on software development, tools, and other cool stuff.";
+const description =
+  "Check out my thoughts on software development, tools, and other cool stuff.";
 
 import { getCollection } from "astro:content";
 
-const posts = await getCollection("posts", ({data}) => {
-    return data.status === "featured";
+const posts = await getCollection("posts", ({ data }) => {
+  return data.status === "featured";
 });
 ---
 
@@ -21,7 +23,7 @@ const posts = await getCollection("posts", ({data}) => {
             {post.data.title}
           </p>
           <p class="text-neutral-600 dark:text-neutral-400">
-            {post.data.publishedAt.toLocaleDateString()}
+            {lightFormat(new Date(post.data.publishedAt.toLocaleDateString()), 'yyyy-MM-dd')}
           </p>
         </div>
       </a>

@@ -1,5 +1,6 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
+import { lightFormat } from "date-fns";
 
 import MarkdownLayout from "@layouts/MarkdownLayout.astro";
 
@@ -16,20 +17,25 @@ const post = Astro.props;
 const { Content } = await post.render();
 
 if (post.data.status === "draft") {
-  return Astro.redirect('/blog');
+  return Astro.redirect("/blog");
 }
 ---
 
 <MarkdownLayout {...post.data}>
-  <h1 class="title font-medium text-2xl tracking-tighter max-w-[650px]">
+  <h1 class="title font-bold text-3xl tracking-tighter max-w-[650px]">
     {post.data.title}
   </h1>
   <div
     class="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]"
   >
-    <p class="text-sm text-neutral-600 dark:text-neutral-400">
-      {post.data.publishedAt.toLocaleDateString()}
-    </p>
+      <p class="text-sm text-neutral-600 dark:text-neutral-400">
+        {
+          lightFormat(
+            new Date(post.data.publishedAt.toLocaleDateString()),
+            "yyyy-MM-dd",
+          )
+        }
+      </p>
   </div>
   <article class="prose prose-neutral dark:prose-invert">
     <Content />
