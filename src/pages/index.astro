@@ -1,71 +1,30 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import Footer from "@components/Footer.astro";
+
+const title = "Dishan Sachin";
+const description = "Check out my thoughts on software development, tools, and other cool stuff.";
 
 import { getCollection } from "astro:content";
-const posts = await getCollection("posts", ({ data }) => {
-  return data.status === "featured";
+
+const posts = await getCollection("posts", ({data}) => {
+    return data.status === "featured";
 });
 ---
 
-<Layout title="Dishan Sachin" descrption="Hi there I am Dishan Sachin.">
-  <section>
-    <h1 class="font-medium text-2xl mb-8 tracking-tighter">
-      Hey, I'm Dishan Sachin 👋
-    </h1>
-    <div class="prose prose-neutral dark:prose-invert">
-      <p>
-        I'm a backend engineer and a writer from Sri Lanka. I work at Ruzzz and
-        I love creating products and telling their stories. I'm pretty good at
-        Laravel (PHP) and Django (Python), and I'm not just into building stuff
-        - I also like to understand how things work and share my knowledge with
-        others.
-      </p>
-    </div>
-    <div class="my-8 flex flex-col space-y-4 w-full">
-      <h2 class="font-medium text-2xl mb-5 tracking-tighter">Featured posts</h2>
-      {
-        posts.map((post) => (
-          <div class="group">
-            <a
-              href={`/blog/${post.slug}`}
-              class="border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded flex items-center justify-between px-3 py-4 w-full"
-            >
-              <div class="flex flex-col">
-                <p class="font-medium text-neutral-900 dark:text-neutral-100">
-                  {post.data.title}
-                </p>
-                <p class="text-neutral-600 dark:text-neutral-400">
-                  {post.data.publishedAt.toLocaleDateString()}
-                </p>
-                <div />
-              </div>
-              <div class="text-neutral-700 dark:text-neutral-300 transform transition-transform duration-300 group-hover:-rotate-12">
-                <svg
-                  width="12"
-                  height="12"
-                  viewBox="0 0 12 12"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </div>
-            </a>
-          </div>
-        ))
-      }
-    </div>
-    <div class="prose prose-neutral dark:prose-invert">
-      <p>
-        I'm always looking for ways to give back to the open-source community.
-        Whether it's decoding complex code or making tricky concepts easier to
-        understand, I'm up for the challenge.
-      </p>
-      <Footer />
-    </div>
-  </section>
+<Layout title={title} description={description}>
+  <h1 class="font-medium text-2xl mb-8 tracking-tighter">Featured</h1>
+  {
+    posts.map((post) => (
+      <a class="flex flex-col space-y-1 mb-4" href={`/blog/${post.slug}`}>
+        <div class="w-full flex flex-col">
+          <p class="text-neutral-900 dark:text-neutral-100 tracking-tight">
+            {post.data.title}
+          </p>
+          <p class="text-neutral-600 dark:text-neutral-400">
+            {post.data.publishedAt.toLocaleDateString()}
+          </p>
+        </div>
+      </a>
+    ))
+  }
 </Layout>
