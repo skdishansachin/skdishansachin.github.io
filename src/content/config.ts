@@ -6,7 +6,7 @@ const postsCollection = defineCollection({
         title: z.string(),
         publishedAt: z.date(),
         updatedAt: z.date().optional(),
-        description: z.string(),
+        description: z.string().min(200),
         author: z.string(),
         tags: z.array(z.string()).optional(),
         status: z.enum(['draft', 'published', 'featured']),

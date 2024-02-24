@@ -9,31 +9,37 @@ const posts = await getCollection('posts', ({ data }) => {
 });
 
 const title = 'Blog | Dishan Sachin';
-const description = 'Check out my thoughts on software development, tools, and other cool stuff.';
+const description =
+    'Check out my thoughts on software development, tools, and other cool stuff.';
 ---
 
 <Layout title={title} description={description}>
     <h1 class="mb-8 text-3xl font-medium tracking-tighter">Latest</h1>
     {
         posts.map((post) => (
-            <a class="mb-4 flex flex-col space-y-1" href={`/blog/${post.slug}`}>
-                <div class="flex w-full flex-col space-y-5">
-                    <p class="text-2xl tracking-tight text-neutral-900 dark:text-neutral-100">
-                        {post.data.title}
-                    </p>
-                    <p class="tracking-tight text-neutral-600 dark:text-neutral-400">
-                        {post.data.description}
-                    </p>
-                    <p class="text-neutral-600 dark:text-neutral-400">
-                        {lightFormat(
-                            new Date(
-                                post.data.publishedAt.toLocaleDateString(),
-                            ),
-                            'yyyy-MM-dd',
-                        )}
-                    </p>
-                </div>
-            </a>
+            <article>
+                <a
+                    class="mb-8 flex flex-col space-y-1"
+                    href={`/blog/${post.slug}`}
+                >
+                    <div class="flex w-full flex-col space-y-5">
+                        <p class="text-2xl tracking-tight text-neutral-900 dark:text-neutral-100">
+                            {post.data.title}
+                        </p>
+                        <p class="tracking-tight text-neutral-600 dark:text-neutral-400">
+                            {post.data.description}
+                        </p>
+                        <p class="text-neutral-600 dark:text-neutral-400">
+                            {lightFormat(
+                                new Date(
+                                    post.data.publishedAt.toLocaleDateString(),
+                                ),
+                                'yyyy-MM-dd',
+                            )}
+                        </p>
+                    </div>
+                </a>
+            </article>
         ))
     }
 </Layout>
