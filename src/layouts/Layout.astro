@@ -3,6 +3,8 @@ import "@fontsource-variable/inter";
 import SpeedInsights from "@vercel/speed-insights/astro";
 const { title, description } = Astro.props;
 
+import "../styles/global.css";
+
 import Navbar from "@components/Navbar.astro";
 const canonicalURL = new URL(Astro.url.href, Astro.site);
 ---
