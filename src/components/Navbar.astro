@@ -1,40 +1,42 @@
 ---
 const navItems = {
-  "/": {
-    name: "home",
-  },
-  "/blog": {
-    name: "blog",
-  },
-  "/about": {
-    name: "about",
-  },
+    '/': {
+        name: 'home',
+    },
+    '/blog': {
+        name: 'blog',
+    },
+    '/about': {
+        name: 'about',
+    },
 };
 ---
 
 <aside class="-ml-[8px] mb-14 tracking-tight">
-  <div class="lg:sticky lg:top-20">
-    <nav
-      class="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
-      id="nav"
-    >
-      <div class="flex flex-row space-x-0 pr-10">
-        {
-          Object.entries(navItems).map(([path, { name }]) => {
-            return (
-              <div class="flex items-center">
-                <a
-                  href={path}
-                  class="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2"
-                >
-                  {name}
-                </a>
-                <p class="px-5 text-neutral-600 dark:text-neutral-400">/</p>
-              </div>
-            );
-          })
-        }
-      </div>
-    </nav>
-  </div>
+    <div class="lg:sticky lg:top-20">
+        <nav
+            class="fade relative flex scroll-pr-6 flex-row items-start px-0 pb-0 md:relative md:overflow-auto"
+            id="nav"
+        >
+            <div class="flex flex-row space-x-0 pr-10">
+                {
+                    Object.entries(navItems).map(([path, { name }]) => {
+                        return (
+                            <div class="flex items-center">
+                                <a
+                                    href={path}
+                                    class="relative flex px-2 py-1 align-middle transition-all hover:text-neutral-800 dark:hover:text-neutral-200"
+                                >
+                                    {name}
+                                </a>
+                                <p class="px-5 text-neutral-600 dark:text-neutral-400">
+                                    /
+                                </p>
+                            </div>
+                        );
+                    })
+                }
+            </div>
+        </nav>
+    </div>
 </aside>

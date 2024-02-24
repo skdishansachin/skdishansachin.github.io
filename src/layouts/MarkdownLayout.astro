@@ -1,12 +1,12 @@
 ---
-import Layout from "@layouts/Layout.astro";
+import Layout from '@layouts/Layout.astro';
 
 const { title, description } = Astro.props;
 ---
 
 <Layout title={title} description={description}>
-  <slot />
-  <div class="pt-5">
-    <a href="/blog" class="underline">Take me back</a>
-  </div>
+    <slot />
+    <div class="pt-5">
+        <a href="/blog" class="underline">Take me back</a>
+    </div>
 </Layout>
