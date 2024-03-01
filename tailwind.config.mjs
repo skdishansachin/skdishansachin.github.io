@@ -6,7 +6,7 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Inter Variable', ...defaultTheme.fontFamily.sans],
+                sans: ['Figtree Variable', ...defaultTheme.fontFamily.sans],
             },
         },
     },
