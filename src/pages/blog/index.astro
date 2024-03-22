@@ -10,7 +10,7 @@ const posts = await getCollection('posts', ({ data }) => {
 ---
 
 <Layout title='Dishan Sachin' description='Check out my thoughts on software development, tools, and other cool stuff.'>
-    <h1 class="mb-8 text-4xl font-medium tracking-tighter">My blog posts</h1>
+    <h1 class="mb-8 text-4xl font-bold tracking-tighter">My blog posts</h1>
     {
         posts.map((post) => (
             <article class="mb-5 flex w-full flex-col">
