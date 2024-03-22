@@ -20,6 +20,12 @@ dependencies:
   '@fontsource-variable/inter':
     specifier: ^5.0.16
     version: 5.0.16
+  '@fontsource-variable/nunito':
+    specifier: ^5.0.18
+    version: 5.0.18
+  '@fontsource/fira-mono':
+    specifier: ^5.0.12
+    version: 5.0.12
   '@vercel/speed-insights':
     specifier: ^1.0.9
     version: 1.0.9
@@ -658,6 +664,14 @@ packages:
 
   /@fontsource-variable/inter@5.0.16:
     resolution: {integrity: sha512-k+BUNqksTL+AN+o+OV7ILeiE9B5M5X+/jA7LWvCwjbV9ovXTqZyKRhA/x7uYv/ml8WQ0XNLBM7cRFIx4jW0/hg==}
+    dev: false
+
+  /@fontsource-variable/nunito@5.0.18:
+    resolution: {integrity: sha512-DaAMnvCuwxv2tCjUIGudvayzO3jjsDEH2DcqcgwRZnjBp5RZRynYkV4aBmvMkQ+Grzpm7MMTqNltiLcJxqSeAQ==}
+    dev: false
+
+  /@fontsource/fira-mono@5.0.12:
+    resolution: {integrity: sha512-1uFRjqCcxVv4F31PjyLm8o4oNlT5ywwh6OwcDGkZbafOeFZHXekvholS9IlfZkRsZvVhSbFRHT/5iDib4KTtpg==}
     dev: false
 
   /@isaacs/cliui@8.0.2:
