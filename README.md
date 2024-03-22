@@ -1,0 +1,6 @@
+-   Add more gifs for the main layout
+-   Add styles to the links
+-   Add styles to the scroll bar
+-   SEO improvements
+-   Add a favicon
+-   Add Open Graph (OG) images
