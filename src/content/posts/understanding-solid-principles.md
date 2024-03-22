@@ -159,5 +159,3 @@ class DatabaseReader implements Reader {
 By depending on the `Reader` interface rather than concrete implementations, classes can be easily swapped out or extended without affecting the client code.
 
 In conclusion, adhering to SOLID principles leads to more maintainable, flexible, and robust code. By applying these principles in Java, developers can write code that is easier to understand, extend, and maintain, ultimately leading to higher-quality software products.
-
-## And now you know SOLID principles!
