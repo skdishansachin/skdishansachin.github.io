@@ -1,7 +1,5 @@
 {
-    "name": "dishansachin.com",
     "type": "module",
-    "version": "0.0.1",
     "scripts": {
         "dev": "astro dev",
         "start": "astro dev",
@@ -14,8 +12,7 @@
         "@astrojs/tailwind": "^5.1.0",
         "@astrojs/vercel": "^7.3.0",
         "@fontsource-variable/figtree": "^5.0.19",
-        "@fontsource-variable/inter": "^5.0.16",
-        "@fontsource-variable/nunito": "^5.0.18",
+        "@fontsource-variable/newsreader": "^5.0.18",
         "@fontsource/fira-mono": "^5.0.12",
         "@vercel/speed-insights": "^1.0.9",
         "astro": "^4.3.6",

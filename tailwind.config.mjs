@@ -6,11 +6,41 @@ export default {
     theme: {
         extend: {
             colors: {
-                dark: '#0F0D0E',
+                dark: '#111',
             },
             fontFamily: {
                 sans: ['Figtree Variable', ...defaultTheme.fontFamily.sans],
                 mono: ['Fira Mono', ...defaultTheme.fontFamily.mono],
+            },
+            typography: {
+                DEFAULT: {
+                    css: {
+                        a: {
+                            color: '#3182ce',
+                            '&:hover': {
+                                color: '#2c5282',
+                            },
+                        },
+                        h1: {
+                            fontFamily: 'Newsreader Variable',
+                        },
+                        h2: {
+                            fontFamily: 'Newsreader Variable',
+                        },
+                        h3: {
+                            fontFamily: 'Newsreader Variable',
+                        },
+                        h4: {
+                            fontFamily: 'Newsreader Variable',
+                        },
+                        h5: {
+                            fontFamily: 'Newsreader Variable',
+                        },
+                        h6: {
+                            fontFamily: 'Newsreader Variable',
+                        },
+                    },
+                },
             },
         },
     },
