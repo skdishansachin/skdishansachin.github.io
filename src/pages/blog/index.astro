@@ -4,6 +4,10 @@ import { lightFormat } from 'date-fns';
 import { Image } from 'astro:assets';
 
 import Layout from '@layouts/Layout.astro';
+import LetterB from '../../images/B.png';
+import LetterL from '../../images/L.png';
+import LetterO from '../../images/O.png';
+import LetterG from '../../images/G.png';
 
 const posts = await getCollection('posts', ({ data }) => {
     return data.status !== 'draft';
@@ -22,7 +26,7 @@ const posts = await getCollection('posts', ({ data }) => {
                 class="block"
                 width="50"
                 height="50"
-                src="/src/images/B.png"
+                src={LetterB}
                 alt="Letter B"
             />
             <Image
@@ -30,7 +34,7 @@ const posts = await getCollection('posts', ({ data }) => {
                 class="block"
                 width="50"
                 height="50"
-                src="/src/images/L.png"
+                src={LetterL}
                 alt="Letter L"
             />
             <Image
@@ -38,7 +42,7 @@ const posts = await getCollection('posts', ({ data }) => {
                 class="block"
                 width="50"
                 height="50"
-                src="/src/images/O.png"
+                src={LetterO}
                 alt="Letter O"
             />
             <Image
@@ -46,7 +50,7 @@ const posts = await getCollection('posts', ({ data }) => {
                 class="block"
                 width="50"
                 height="50"
-                src="/src/images/G.png"
+                src={LetterG}
                 alt="Letter G"
             />
         </div>
