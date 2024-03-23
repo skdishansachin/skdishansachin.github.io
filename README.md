@@ -4,4 +4,4 @@
 -   SEO improvements
 -   Add a favicon
 -   Add Open Graph (OG) images
--   List all the post within ul > li
+-   Text color

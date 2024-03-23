@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import { lightFormat } from 'date-fns';
+import { Image } from 'astro:assets';
 
 import Layout from '@layouts/Layout.astro';
 
@@ -13,29 +14,68 @@ const posts = await getCollection('posts', ({ data }) => {
     title="Dishan Sachin"
     description="Check out my thoughts on software development, tools, and other cool stuff."
 >
-    <h1 class="mb-8 font-['Newsreader_Variable'] text-5xl font-semibold">
-        All Posts
-    </h1>
-    {
-        posts.map((post) => (
-            <>
-                <article class="mb-8 flex w-full flex-col border-b border-[#eee] pb-8">
-                    <p class="font-['Newsreader_Variable'] text-2xl font-semibold text-neutral-900 dark:text-neutral-100">
-                        <a href={`/blog/${post.slug}`}>{post.data.title}</a>
-                    </p>
-                    <p class="my-4 text-xl text-neutral-900 dark:text-neutral-100">
-                        {post.data.description}
-                    </p>
-                    <p class="text-neutral-600 dark:text-neutral-400">
-                        {lightFormat(
-                            new Date(
-                                post.data.publishedAt.toLocaleDateString(),
-                            ),
-                            'yyyy-MM-dd',
-                        )}
-                    </p>
-                </article>
-            </>
-        ))
-    }
+    <div class="mb-10 flex h-full items-center space-x-5">
+        <h1 class="font-['Newsreader_Variable'] text-5xl font-semibold">All</h1>
+        <div class="flex h-10 items-center">
+            <Image
+                loading="lazy"
+                class="block"
+                width="50"
+                height="50"
+                src="/src/images/B.png"
+                alt="Letter B"
+            />
+            <Image
+                loading="lazy"
+                class="block"
+                width="50"
+                height="50"
+                src="/src/images/L.png"
+                alt="Letter L"
+            />
+            <Image
+                loading="lazy"
+                class="block"
+                width="50"
+                height="50"
+                src="/src/images/O.png"
+                alt="Letter O"
+            />
+            <Image
+                loading="lazy"
+                class="block"
+                width="50"
+                height="50"
+                src="/src/images/G.png"
+                alt="Letter G"
+            />
+        </div>
+        <h1 class="font-['Newsreader_Variable'] text-5xl font-semibold">
+            Posts
+        </h1>
+    </div>
+    <ul>
+        {
+            posts.map((post) => (
+                <il>
+                    <article class="mb-10 flex w-full flex-col border-b border-[#eee] pb-8">
+                        <p class="font-['Newsreader_Variable'] text-2xl font-semibold text-neutral-900 dark:text-neutral-100">
+                            <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+                        </p>
+                        <p class="my-4 text-xl text-neutral-900 dark:text-neutral-100">
+                            {post.data.description}
+                        </p>
+                        <p class="text-neutral-600 dark:text-neutral-400">
+                            {lightFormat(
+                                new Date(
+                                    post.data.publishedAt.toLocaleDateString(),
+                                ),
+                                'yyyy-MM-dd',
+                            )}
+                        </p>
+                    </article>
+                </il>
+            ))
+        }
+    </ul>
 </Layout>
