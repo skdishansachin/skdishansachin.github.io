@@ -2,7 +2,7 @@
 title: Understanding SOLID Principles
 publishedAt: 2024-02-15
 author: Dishan Sachin
-status: featured
+status: published
 description: "What is SOLID? How can we apply these principles in Java? Let's explore the Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion principles with practical examples."
 ---
 
