@@ -9,7 +9,7 @@ const postsCollection = defineCollection({
         description: z.string().min(50),
         author: z.string(),
         tags: z.array(z.string()).optional(),
-        status: z.enum(['draft', 'published', 'featured']),
+        status: z.enum(['draft', 'published']),
     }),
 });
 

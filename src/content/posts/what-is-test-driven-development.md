@@ -2,7 +2,7 @@
 title: What is test driven development (TDD)
 publishedAt: 2024-03-01
 author: Dishan Sachin
-status: featured
+status: published
 description: "Test-Driven Development (TDD) is a software development approach that emphasizes writing tests before writing the actual code. Let's explore what TDD is, how it works, its benefits, and best practices associated with it."
 ---
 
