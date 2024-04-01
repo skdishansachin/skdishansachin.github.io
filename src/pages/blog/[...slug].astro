@@ -2,6 +2,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 
 import Layout from '@components/Layout.astro';
+import { formatDate } from '@utils/format';
 
 export async function getStaticPaths() {
     const posts = await getCollection('posts');
@@ -23,7 +24,7 @@ if (post.data.status === 'draft') {
 <Layout title={post.data.title} description={post.data.description}>
     <h1 class="text-4xl font-semibold">{post.data.title}</h1>
     <p class="mt-4 text-lg text-zinc-450">
-        <!-- {formatDate(post.data.date)} -->
+        {formatDate(post.data.publishedAt)}
     </p>
     <div id="md" class="mt-12 leading-relaxed">
         <Content />
