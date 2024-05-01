@@ -9,7 +9,7 @@ const posts = await getCollection('posts', ({ data }) => {
 ---
 
 <Layout title="Dishan Sachin" description="Dishan Sachin's personal website">
-    <h1 class="mb-3 text-3xl font-semibold">Hi, I'm Dishan Sachin</h1>
+    <h1 class="mb-3 text-3xl font-bold tracking-tighter">Hi, I'm Dishan Sachin</h1>
     <p class="text-zinc-800">
         I'm a backend developer, currently working on my own company called
         Ruzzz with one of my friends. I love working in teams, so let's connect
@@ -21,7 +21,7 @@ const posts = await getCollection('posts', ({ data }) => {
             posts.map((post) => {
                 return (
                     <article class="mb-4">
-                        <h3 class="w-fit ">
+                        <h3 class="w-fit text-lg">
                             <a
                                 href={`/blog/${post.slug}`}
                                 class="hover:text-main hover:underline"
@@ -29,7 +29,7 @@ const posts = await getCollection('posts', ({ data }) => {
                                 {post.data.title}
                             </a>
                         </h3>
-                        <p class="text-sm text-zinc-400">
+                        <p class="text-md text-zinc-400">
                             {post.data.description}
                         </p>
                     </article>
