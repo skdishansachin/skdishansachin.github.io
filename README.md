@@ -1,6 +1,3 @@
--   Add more gifs for the main layout
--   Add styles to the links [50%]
--   Add styles to the scroll bar
--   SEO improvements
--   Add Open Graph (OG) images
--   Play with date formate
+-   Add more posts
+-   Add the substrck newsletter services
+-   contact us like form
