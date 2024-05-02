@@ -17,12 +17,12 @@ interface Props {
         <meta name="description" content={Astro.props.description} />
         <title>{Astro.props.title}</title>
         <link rel="preconnect" href="/" crossorigin />
-        <link rel="preload" href="/profile.jpg" as="image" />
-        <link rel="icon" href="/profile.jpg" />
+        <link rel="preload" href="/profile.png" as="image" />
+        <link rel="icon" href="/profile.png" />
         <link
             rel="alternate"
             type="application/rss+xml"
-            title="Pilcrow"
+            title="Dishan"
             href={`${Astro.site}rss.xml`}
         />
 
@@ -41,15 +41,12 @@ interface Props {
         <meta name="twitter:site" content="@skdishansachin" />
         <meta name="twitter:title" content={Astro.props.title} />
         <meta name="twitter:description" content={Astro.props.description} />
-
-        <!-- Discord -->
-        <meta name="theme-color" content="#7575ff" />
     </head>
     <body class="mx-auto max-w-3xl px-4 text-zinc-800 antialiased">
         <header class="flex place-content-between place-items-center pb-2 pt-6">
             <a class="block" href="/">
                 <img
-                    src="https://github.com/skdishansachin.png"
+                    src="/profile.png"
                     alt="profile picture"
                     class="h-8 w-8 rounded-full bg-zinc-100 transition-transform duration-200 ease-in-out hover:scale-110 sm:h-10 sm:w-10"
                 /></a
