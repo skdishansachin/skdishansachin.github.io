@@ -1,0 +1,32 @@
+---
+import Layout from '@components/Layout.astro';
+
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('posts', ({ data }) => {
+    return data.status === 'published';
+});
+---
+
+<Layout title="Dishan Sachin | Blog" description="Read my blog.">
+    <h1 class="text-3xl font-bold tracking-tighter">I write ⌨️</h1>
+    {
+        posts.map((post) => {
+            return (
+                <article class="my-6">
+                    <h3 class="w-fit text-xl">
+                        <a
+                            href={`/blog/${post.slug}`}
+                            class="hover:text-main hover:underline"
+                        >
+                            {post.data.title}
+                        </a>
+                    </h3>
+                    <p class="text-base text-zinc-400">
+                        {post.data.description}
+                    </p>
+                </article>
+            );
+        })
+    }
+</Layout>

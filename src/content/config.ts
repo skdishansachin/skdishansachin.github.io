@@ -6,9 +6,8 @@ const postsCollection = defineCollection({
         title: z.string(),
         publishedAt: z.date(),
         updatedAt: z.date().optional(),
-        description: z.string().min(50),
-        author: z.string(),
-        tags: z.array(z.string()).optional(),
+        description: z.string().min(100).max(140),
+        isFeatured: z.boolean(),
         status: z.enum(['draft', 'published']),
     }),
 });
