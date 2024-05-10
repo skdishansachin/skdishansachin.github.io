@@ -1,6 +1,5 @@
 ---
-import '@fontsource-variable/jetbrains-mono';
-import '@fontsource-variable/inter';
+import Base from './Base.astro'
 
 interface Props {
     title: string;
@@ -8,40 +7,7 @@ interface Props {
     ogId?: string;
 }
 ---
-
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <meta name="description" content={Astro.props.description} />
-        <title>{Astro.props.title}</title>
-        <link rel="preconnect" href="/" crossorigin />
-        <link rel="preload" href="/profile.png" as="image" />
-        <link rel="icon" href="/profile.png" />
-        <link
-            rel="alternate"
-            type="application/rss+xml"
-            title="Dishan"
-            href={`${Astro.site}rss.xml`}
-        />
-
-        <!-- OpenGraph tags -->
-        <meta name="og:title" content={Astro.props.title} />
-        <meta property="og:title" content={Astro.props.title} />
-        <meta property="og:type" content="website" />
-        <meta property="og:locale" content="en" />
-        <meta property="og:description" content={Astro.props.description} />
-        <meta property="og:site_name" content="Dishan Sachin" />
-        <meta property="og:url" content="https://dishansachin.vercel.app" />
-        <!-- <meta property="og:image" content="PATHTOTHEIMAGE" /> -->
-
-        <!-- Twitter tags -->
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@skdishansachin" />
-        <meta name="twitter:title" content={Astro.props.title} />
-        <meta name="twitter:description" content={Astro.props.description} />
-    </head>
+<Base title={Astro.props.title} description={Astro.props.description} ogId={Astro.props.ogId}>
     <body class="mx-auto max-w-3xl px-4 text-zinc-800 antialiased">
         <header class="flex place-content-between place-items-center pb-2 pt-6">
             <a class="block" href="/">
@@ -66,5 +32,4 @@ interface Props {
         <main class="pb-32 pt-8 leading-relaxed sm:pt-12">
             <slot />
         </main>
-    </body>
-</html>
+    </Base>
