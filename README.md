@@ -1,3 +1,1 @@
--   Add more posts
 -   Add the substrck newsletter services
--   contact us like form

@@ -23,7 +23,7 @@ if (post.data.status === 'draft') {
 
 <Layout title={post.data.title} description={post.data.description}>
     <h1 class="text-4xl font-bold tracking-tighter">{post.data.title}</h1>
-    <p class="mt-4 text-lg text-zinc-450">
+    <p class="mt-4 text-lg text-zinc-450 tracking-tight">
         {formatDate(post.data.publishedAt)}
     </p>
     <!-- by default the code block font set arround 14px I have changed it to `text-base` -->

@@ -10,7 +10,7 @@ module.exports = {
         },
         extend: {
             fontFamily: {
-                sans: ['Inter Variable', ...defaultTheme.fontFamily.sans],
+                sans: ['sans-serif', ...defaultTheme.fontFamily.sans],
                 mono: ['JetBrains Mono', ...defaultTheme.fontFamily.mono],
             },
             colors: {
@@ -22,7 +22,5 @@ module.exports = {
             },
         },
     },
-    plugins: [
-        require('@tailwindcss/typography')
-    ],
+    plugins: [require('@tailwindcss/typography')],
 };
