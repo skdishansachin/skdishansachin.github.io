@@ -41,7 +41,9 @@ interface Props {
         <meta name="twitter:title" content={Astro.props.title} />
         <meta name="twitter:description" content={Astro.props.description} />
     </head>
-    <body class="mx-auto max-w-3xl px-4 text-zinc-800 antialiased bg-gray-50">
+    <body
+        class="mx-auto max-w-3xl bg-gray-50 px-4 text-zinc-800 antialiased selection:bg-blue-400"
+    >
         <slot />
     </body>
 </html>
