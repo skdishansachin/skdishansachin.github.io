@@ -1,5 +1,7 @@
 ---
 import '@fontsource-variable/jetbrains-mono';
+import '@fontsource-variable/inter'; // Inter Variable
+import '@fontsource-variable/newsreader'; // Newsreader Variable
 
 interface Props {
     title: string;
@@ -42,7 +44,7 @@ interface Props {
         <meta name="twitter:description" content={Astro.props.description} />
     </head>
     <body
-        class="mx-auto max-w-3xl bg-white px-4 text-zinc-800 antialiased selection:bg-blue-300 selection:text-black"
+        class="mx-auto max-w-3xl bg-zinc-900 px-4 antialiased selection:bg-blue-300 selection:text-white"
     >
         <slot />
     </body>

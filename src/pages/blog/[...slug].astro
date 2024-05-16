@@ -22,17 +22,16 @@ if (post.data.status === 'draft') {
 ---
 
 <Layout title={post.data.title} description={post.data.description}>
-    <h1 class="text-4xl font-bold tracking-tighter">
+    <h1 class="text-4xl font-black text-white">
         {post.data.title}
     </h1>
-    <p class="my-4 text-lg tracking-tight text-zinc-450">
+    <p class="my-4 text-lg text-zinc-300">
         {formatDate(post.data.publishedAt)}
     </p>
-    <hr />
     <!-- by default the code block font set arround 14px I have changed it to `text-base` -->
-    <!-- Update the heading h1, h2, h3 letter space -->
+    <!-- there will be no light mode -->
     <div
-        class="prose mt-4 max-w-full lg:prose-lg prose-h1:tracking-tighter prose-h2:tracking-tighter prose-h3:tracking-tighter prose-code:text-base"
+        class="prose mt-4 max-w-full dark:prose-invert prose-p:mt-7 prose-p:leading-7 prose-p:text-zinc-300 prose-code:text-base"
     >
         <Content />
     </div>
