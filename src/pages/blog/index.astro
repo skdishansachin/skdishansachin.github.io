@@ -10,6 +10,7 @@ const posts = await getCollection('posts', ({ data }) => {
 
 <Layout title="Dishan Sachin | Blog" description="Read my blog.">
     <h1 class="text-3xl font-bold tracking-tighter">I write ⌨️</h1>
+    <div id="pagefind-search" class="mt-6"></div>
     {
         posts.map((post) => {
             return (

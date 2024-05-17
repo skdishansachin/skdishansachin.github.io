@@ -40,10 +40,24 @@ interface Props {
         <meta name="twitter:site" content="@skdishansachin" />
         <meta name="twitter:title" content={Astro.props.title} />
         <meta name="twitter:description" content={Astro.props.description} />
+
+        <!-- pageFind scripts and CSS-->
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js" is:inline></script>
     </head>
     <body
         class="mx-auto max-w-3xl bg-white px-4 text-zinc-800 antialiased selection:bg-blue-300 selection:text-black"
     >
         <slot />
     </body>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            // @ts-ignore
+            new PagefindUI({
+                element: '#pagefind-search',
+                showSubResults: true,
+                showImages: false,
+            });
+        });
+    </script>
 </html>
