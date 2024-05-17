@@ -9,25 +9,31 @@ const posts = await getCollection('posts', ({ data }) => {
 ---
 
 <Layout title="Dishan Sachin | Blog" description="Read my blog.">
-    <h1 class="text-3xl font-bold tracking-tighter text-white">I write ⌨️</h1>
-    <div id="pagefind-search" class="mt-6"></div>
-    {
-        posts.map((post) => {
-            return (
-                <article class="my-6">
-                    <h3 class="w-fit text-xl">
+    <h1
+        class="font-sans text-3xl font-semibold tracking-tight text-black dark:text-white"
+    >
+        I write ⌨️
+    </h1>
+    <!-- <div id="pagefind-search" class="mt-6"></div> -->
+    <ul class="list-disc">
+        {
+            posts.map((post) => {
+                return (
+                    <li class="pt-5">
                         <a
                             href={`/blog/${post.slug}`}
-                            class="text-white hover:text-main hover:underline"
+                            class="font-serif text-xl text-black hover:underline dark:text-white"
                         >
                             {post.data.title}
                         </a>
-                    </h3>
-                    <p class="text-base text-zinc-300">
-                        {post.data.description}
-                    </p>
-                </article>
-            );
-        })
-    }
+                        <p class="font-sans">
+                            {new Date(post.data.publishedAt).toLocaleDateString(
+                                'en-US',
+                            )}
+                        </p>
+                    </li>
+                );
+            })
+        }
+    </ul>
 </Layout>

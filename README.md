@@ -1,1 +1,1 @@
--   Add the substrck newsletter services
+-   Add the substrck serifletter services

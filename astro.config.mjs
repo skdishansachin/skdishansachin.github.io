@@ -13,9 +13,12 @@ export default defineConfig({
     }),
     markdown: {
         shikiConfig: {
-            theme: 'dracula',
+            themes: {
+                light: 'github-light',
+                dark: 'github-dark',
+            },
             // Enable word wrap to prevent horizontal scrolling
-            wrap: true,
+            wrap: false,
         },
     },
     integrations: [tailwind()],

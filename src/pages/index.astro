@@ -9,32 +9,37 @@ const posts = await getCollection('posts', ({ data }) => {
 ---
 
 <Layout title="Dishan Sachin" description="Dishan Sachin's personal website">
-    <h1 class="mb-3 text-3xl font-bold text-white">Hi, I'm Dishan Sachin</h1>
-    <p class="text-lg text-zinc-300">
+    <h1
+        class="mb-3 font-sans text-3xl font-semibold tracking-tight text-black dark:text-white"
+    >
+        Hello! I’m Dishan Sachin 👋
+    </h1>
+    <p class="font-sans text-lg text-[#676767] dark:text-white">
         I'm a backend developer, currently working on my own company called
         Ruzzz with one of my friends. I love working in teams, so let's connect
         and see if there's a chance to work together!
     </p>
     <section class="mt-12">
-        <h2 class="text-3xl font-semibold text-white">I write ⌨️</h2>
-        {
-            posts.map((post) => {
-                return (
-                    <article class="my-6">
-                        <h3 class="w-fit text-xl">
+        <h1
+            class="font-sans text-3xl font-semibold tracking-tight text-black dark:text-white"
+        >
+            I write ⌨️
+        </h1>
+        <ul class="list-disc">
+            {
+                posts.map((post) => {
+                    return (
+                        <li class="pt-5">
                             <a
                                 href={`/blog/${post.slug}`}
-                                class="text-white hover:text-main hover:underline"
+                                class="font-serif text-xl text-black hover:underline dark:text-white"
                             >
                                 {post.data.title}
                             </a>
-                        </h3>
-                        <p class="text-base text-zinc-300">
-                            {post.data.description}
-                        </p>
-                    </article>
-                );
-            })
-        }
+                        </li>
+                    );
+                })
+            }
+        </ul>
     </section>
 </Layout>

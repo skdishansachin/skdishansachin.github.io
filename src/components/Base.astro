@@ -1,7 +1,6 @@
 ---
-import '@fontsource-variable/jetbrains-mono';
 import '@fontsource-variable/inter'; // Inter Variable
-import '@fontsource-variable/newsreader'; // Newsreader Variable
+import '@fontsource-variable/nunito'; // Nunito Variable
 
 interface Props {
     title: string;
@@ -47,12 +46,10 @@ interface Props {
         <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
         <script src="/pagefind/pagefind-ui.js" is:inline></script>
     </head>
-    <body
-        class="mx-auto max-w-3xl bg-zinc-900 px-4 antialiased selection:bg-blue-300 selection:text-white"
-    >
+    <body class="mx-auto max-w-3xl bg-white px-4 antialiased dark:bg-[#1a1a1a]">
         <slot />
     </body>
-    <script>
+    <!-- <script>
         window.addEventListener('DOMContentLoaded', (event) => {
             // @ts-ignore
             new PagefindUI({
@@ -61,5 +58,5 @@ interface Props {
                 showImages: false,
             });
         });
-    </script>
+    </script> -->
 </html>
