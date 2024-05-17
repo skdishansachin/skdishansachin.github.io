@@ -9,8 +9,7 @@ const posts = await getCollection('posts', ({ data }) => {
 ---
 
 <Layout title="Dishan Sachin | Blog" description="Read my blog.">
-    <h1 class="text-3xl font-bold tracking-tighter">I write ⌨️</h1>
-    <div id="pagefind-search" class="mt-6"></div>
+    <h1 class="text-3xl font-bold tracking-tighter text-white">I write ⌨️</h1>
     {
         posts.map((post) => {
             return (
@@ -18,12 +17,12 @@ const posts = await getCollection('posts', ({ data }) => {
                     <h3 class="w-fit text-xl">
                         <a
                             href={`/blog/${post.slug}`}
-                            class="hover:text-main hover:underline"
+                            class="text-white hover:text-main hover:underline"
                         >
                             {post.data.title}
                         </a>
                     </h3>
-                    <p class="text-base text-zinc-400">
+                    <p class="text-base text-zinc-300">
                         {post.data.description}
                     </p>
                 </article>
