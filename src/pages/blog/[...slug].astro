@@ -22,6 +22,7 @@ if (post.data.status === 'draft') {
 ---
 
 <Layout title={post.data.title} description={post.data.description}>
+<<<<<<< HEAD
     <article data-pagefind-body>
         <h1 class="text-4xl font-bold tracking-tighter">
             {post.data.title}
@@ -38,6 +39,21 @@ if (post.data.status === 'draft') {
             <Content />
         </div>
     </article>
+=======
+    <h1 class="text-4xl font-black text-white">
+        {post.data.title}
+    </h1>
+    <p class="my-4 text-lg text-zinc-300">
+        {formatDate(post.data.publishedAt)}
+    </p>
+    <!-- by default the code block font set arround 14px I have changed it to `text-base` -->
+    <!-- there will be no light mode -->
+    <div
+        class="prose mt-4 max-w-full dark:prose-invert prose-p:mt-7 prose-p:leading-7 prose-p:text-zinc-300 prose-code:text-base"
+    >
+        <Content />
+    </div>
+>>>>>>> theme-refactor
 </Layout>
 
 <style lang="postcss">
