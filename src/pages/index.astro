@@ -9,19 +9,22 @@ const posts = await getCollection('posts', ({ data }) => {
 ---
 
 <Layout title="Dishan Sachin" description="Dishan Sachin's personal website">
-    <h1
-        class="mb-3 font-sans text-3xl font-semibold tracking-tight text-black dark:text-white"
-    >
-        Hello! I’m Dishan Sachin 👋
-    </h1>
-    <p class="font-sans text-lg text-[#676767] dark:text-white">
-        I'm a backend developer, currently working on my own company called
-        Ruzzz with one of my friends. I love working in teams, so let's connect
-        and see if there's a chance to work together!
-    </p>
+    <section>
+        <h1
+            class="mb-3 font-sans text-3xl font-semibold tracking-tight text-[#2e3440] dark:text-white"
+        >
+            Hello! I’m Dishan Sachin 👋
+        </h1>
+        <p class="font-serif text-lg text-[#676767] dark:text-white">
+            I do backend development, write sometimes, play
+            basketball, and love music. I'm into building stuff and playing
+            old-school arcade games. I'm a huge fan of open source and coffee.
+            Nice to meet you!
+        </p>
+    </section>
     <section class="mt-12">
         <h1
-            class="font-sans text-3xl font-semibold tracking-tight text-black dark:text-white"
+            class="font-sans text-3xl font-semibold tracking-tight text-[#2e3440] dark:text-white"
         >
             I write ⌨️
         </h1>
@@ -29,10 +32,10 @@ const posts = await getCollection('posts', ({ data }) => {
             {
                 posts.map((post) => {
                     return (
-                        <li class="pt-5">
+                        <li class="pt-3">
                             <a
                                 href={`/blog/${post.slug}`}
-                                class="font-serif text-xl text-black hover:underline dark:text-white"
+                                class="font-serif text-lg text-[#2e3440] hover:underline dark:text-white"
                             >
                                 {post.data.title}
                             </a>
@@ -40,6 +43,105 @@ const posts = await getCollection('posts', ({ data }) => {
                     );
                 })
             }
+        </ul>
+    </section>
+    <section class="mt-12">
+        <h1
+            class="mb-3 font-sans text-3xl font-semibold tracking-tight text-[#2e3440] dark:text-white"
+        >
+            Currently ⌚
+        </h1>
+        <p class="font-serif text-lg text-[#676767] dark:text-white">
+            At Ruzzz, we're currently working on some e-commerce projects,
+            mainly using Shopify. I know it might sound like "ahh," but trust
+            me, there's a lot to it. Setting up a store, understanding client
+            needs, and choosing the right tools for the job is tough. Whether
+            it's Hydrogen, Next.js, or just using Liquid templates, there's more
+            to it than it seems.
+        </p>
+    </section>
+    <section class="mt-12">
+        <h1
+            class="mb-3 font-sans text-3xl font-semibold tracking-tight text-[#2e3440] dark:text-white"
+        >
+            I watch 👀
+        </h1>
+        <p class="font-serif text-lg text-[#676767] dark:text-white">
+            Here is a small list of movies I like.
+        </p>
+        <ul class="list-disc">
+            <li class="pt-3">
+                <a
+                    target="_blank"
+                    href="https://www.imdb.com/title/tt0103064"
+                    class="font-serif text-lg text-[#2e3440] hover:underline dark:text-white"
+                >
+                    Treminator 2: Judgement Day
+                </a>
+            </li>
+            <li class="pt-3">
+                <a
+                    target="_blank"
+                    href="https://www.imdb.com/title/tt0993846"
+                    class="font-serif text-lg text-[#2e3440] hover:underline dark:text-white"
+                >
+                    The Wolf of Wall Street
+                </a>
+            </li>
+            <li class="pt-3">
+                <a
+                    target="_blank"
+                    href="https://www.imdb.com/title/tt1790864"
+                    class="font-serif text-lg text-[#2e3440] hover:underline dark:text-white"
+                >
+                    The Maze Runner
+                </a>
+            </li>
+            <li class="pt-3">
+                <a
+                    target="_blank"
+                    href="https://www.imdb.com/title/tt15398776"
+                    class="font-serif text-lg text-[#2e3440] hover:underline dark:text-white"
+                >
+                    Oppenheimer
+                </a>
+            </li>
+        </ul>
+    </section>
+    <section class="mt-12">
+        <h1
+            class="font-sans text-3xl font-semibold tracking-tight text-[#2e3440] dark:text-white"
+        >
+            Let's Connect 📬
+        </h1>
+        <ul class="list-disc">
+            <li class="pt-3">
+                <a
+                    target="_blank"
+                    href="https://github/skdishansachin"
+                    class="font-serif text-lg text-[#2e3440] hover:underline dark:text-white"
+                >
+                    GitHub
+                </a>
+            </li>
+            <li class="pt-3">
+                <a
+                    target="_blank"
+                    href="https://x/skdishansachin"
+                    class="font-serif text-lg text-[#2e3440] hover:underline dark:text-white"
+                >
+                    X
+                </a>
+            </li>
+            <li class="pt-3">
+                <a
+                    target="_blank"
+                    href="https://linkedin/skdishansachin"
+                    class="font-serif text-lg text-[#2e3440] hover:underline dark:text-white"
+                >
+                    LinkedIn
+                </a>
+            </li>
         </ul>
     </section>
 </Layout>
