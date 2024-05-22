@@ -6,7 +6,7 @@ isFeatured: false
 status: published
 ---
 
-Serverless architecture is a modern way of building and running software without worrying about managing servers. It lets developers focus on writing code, while the cloud provider takes care of the server infrastructure <img src="/what-is-serverless-architecture/cloud-emoji.png" class="w-10 h-fit !m-0 pl-1 inline-flex" alt="cloud provider emoji" />.
+Serverless architecture is a modern way of building and running software without worrying about managing servers. It lets developers focus on writing code, while the cloud provider takes care of the server infrastructure.
 
 **How it Works:**
 In serverless architecture, developers write small pieces of code called functions. These functions are designed to perform specific tasks when triggered by events, like a user clicking a button or sending a request. When an event occurs, the cloud provider automatically runs the function without developers needing to worry about where or how it runs.
