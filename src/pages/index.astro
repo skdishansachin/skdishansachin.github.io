@@ -13,11 +13,12 @@ const posts = await getCollection('posts', ({ data }) => {
         <h1
             class="mb-4 font-sans text-3xl font-semibold tracking-tight text-[#2e3440] dark:text-white"
         >
-            Hello! I’m Dishan Sachin 👋
+            Hello! I’m Dishan Sachin.
         </h1>
         <p class="font-serif text-lg text-[#676767] dark:text-white">
-            I am a software developer, writer and co-founder of XYZ (launching
-            soon). I spend most of my time reading books, articles.
+            I am a software developer, writer and I am undergraduate student at
+            Java Institute For Advanced Technology. I spend most of my time
+            reading books, articles.
         </p>
         <p class="mt-4 font-serif text-lg text-[#676767] dark:text-white">
             I am a founder of Ruzzz, a software development company that focuses
@@ -33,15 +34,23 @@ const posts = await getCollection('posts', ({ data }) => {
         </p>
     </section>
     <section class="mt-8">
-        <h1
-            class="font-sans text-3xl font-semibold tracking-tight text-[#2e3440] dark:text-white"
-        >
-            I write ⌨️
-        </h1>
+        <div class="flex justify-between items-center">
+            <h1
+                class="font-sans text-3xl font-semibold tracking-tight text-[#2e3440] dark:text-white"
+            >
+                I write ⌨️
+            </h1>
+            <a
+                href="/blog"
+                class="text-[#2e3440] font-semibold underline dark:text-white"
+            >
+                All posts
+            </a>
+        </div>
         <p class="py-4 font-serif text-lg text-[#676767] dark:text-white">
             Here are some of my recent posts. And if your wondering what I write
             about, I write about software development, productivity, and
-            personal growth. (+ my annoying client 😅)
+            personal growth.
         </p>
         <ul class="list-disc">
             {
@@ -110,40 +119,4 @@ const posts = await getCollection('posts', ({ data }) => {
         </ul>
     </section>
     <!-- END -->
-    <section class="mt-8">
-        <h1
-            class="font-sans text-3xl font-semibold tracking-tight text-[#2e3440] dark:text-white"
-        >
-            Let's Connect 📬
-        </h1>
-        <ul class="flex list-disc space-x-10">
-            <li class="pt-3">
-                <a
-                    target="_blank"
-                    href="https://dub.sh/mVZ0vcS"
-                    class="font-serif text-lg text-[#2e3440] hover:underline dark:text-white"
-                >
-                    GitHub
-                </a>
-            </li>
-            <li class="pt-3">
-                <a
-                    target="_blank"
-                    href="https://dub.sh/rxQSjFM"
-                    class="font-serif text-lg text-[#2e3440] hover:underline dark:text-white"
-                >
-                    X
-                </a>
-            </li>
-            <li class="pt-3">
-                <a
-                    target="_blank"
-                    href="https://dub.sh/CJb2MuA"
-                    class="font-serif text-lg text-[#2e3440] hover:underline dark:text-white"
-                >
-                    LinkedIn
-                </a>
-            </li>
-        </ul>
-    </section>
 </Layout>
