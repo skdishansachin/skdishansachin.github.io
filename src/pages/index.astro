@@ -11,23 +11,38 @@ const posts = await getCollection('posts', ({ data }) => {
 <Layout title="Dishan Sachin" description="Dishan Sachin's personal website">
     <section>
         <h1
-            class="mb-3 font-sans text-3xl font-semibold tracking-tight text-[#2e3440] dark:text-white"
+            class="mb-4 font-sans text-3xl font-semibold tracking-tight text-[#2e3440] dark:text-white"
         >
             Hello! I’m Dishan Sachin 👋
         </h1>
         <p class="font-serif text-lg text-[#676767] dark:text-white">
-            I do backend development, write sometimes, play
-            basketball, and love music. I'm into building stuff and playing
-            old-school arcade games. I'm a huge fan of open source and coffee.
-            Nice to meet you!
+            I am a software developer, writer and co-founder of XYZ (launching
+            soon). I spend most of my time reading books, articles.
+        </p>
+        <p class="mt-4 font-serif text-lg text-[#676767] dark:text-white">
+            I am a founder of Ruzzz, a software development company that focuses
+            on building e-commerce solutions for small and medium-sized
+            businesses. And unfortunately, I cannot share much about it at the
+            moment. more to come soon.
+        </p>
+        <p class="mt-4 font-serif text-lg text-[#676767] dark:text-white">
+            To be more specific I am a passionate Backend Developer who loves
+            solving complex problems. With a knack for building efficient and
+            scalable systems. I do frontend too, but I more prefer to work on
+            backend.
         </p>
     </section>
-    <section class="mt-12">
+    <section class="mt-8">
         <h1
             class="font-sans text-3xl font-semibold tracking-tight text-[#2e3440] dark:text-white"
         >
             I write ⌨️
         </h1>
+        <p class="py-4 font-serif text-lg text-[#676767] dark:text-white">
+            Here are some of my recent posts. And if your wondering what I write
+            about, I write about software development, productivity, and
+            personal growth. (+ my annoying client 😅)
+        </p>
         <ul class="list-disc">
             {
                 posts.map((post) => {
@@ -45,22 +60,8 @@ const posts = await getCollection('posts', ({ data }) => {
             }
         </ul>
     </section>
-    <section class="mt-12">
-        <h1
-            class="mb-3 font-sans text-3xl font-semibold tracking-tight text-[#2e3440] dark:text-white"
-        >
-            Currently ⌚
-        </h1>
-        <p class="font-serif text-lg text-[#676767] dark:text-white">
-            At Ruzzz, we're currently working on some e-commerce projects,
-            mainly using Shopify. I know it might sound like "ahh," but trust
-            me, there's a lot to it. Setting up a store, understanding client
-            needs, and choosing the right tools for the job is tough. Whether
-            it's Hydrogen, Next.js, or just using Liquid templates, there's more
-            to it than it seems.
-        </p>
-    </section>
-    <section class="mt-12">
+    <!-- START -->
+    <section class="mt-12 hidden">
         <h1
             class="mb-3 font-sans text-3xl font-semibold tracking-tight text-[#2e3440] dark:text-white"
         >
@@ -108,13 +109,14 @@ const posts = await getCollection('posts', ({ data }) => {
             </li>
         </ul>
     </section>
-    <section class="mt-12">
+    <!-- END -->
+    <section class="mt-8">
         <h1
             class="font-sans text-3xl font-semibold tracking-tight text-[#2e3440] dark:text-white"
         >
             Let's Connect 📬
         </h1>
-        <ul class="list-disc">
+        <ul class="flex list-disc space-x-10">
             <li class="pt-3">
                 <a
                     target="_blank"
