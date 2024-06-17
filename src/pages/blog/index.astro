@@ -18,14 +18,14 @@ const posts = await getCollection('posts', ({ data }) => {
         {
             posts.map((post) => {
                 return (
-                    <li class="pt-5">
+                    <li class="pt-4">
                         <a
                             href={`/blog/${post.slug}`}
-                            class="font-serif text-xl text-black hover:underline dark:text-white"
+                            class="font-serif text-xl text-[#2e3440] hover:underline dark:text-white"
                         >
                             {post.data.title}
                         </a>
-                        <p class="font-sans">
+                        <p class="font-sans text-base">
                             {new Date(post.data.publishedAt).toLocaleDateString(
                                 'en-US',
                             )}
