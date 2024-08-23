@@ -10,105 +10,16 @@ const posts = await getCollection('posts', ({ data }) => {
 
 <Layout title="Dishan Sachin" description="Dishan Sachin's personal website">
     <section>
-        <h1
-            class="mb-4 font-sans text-3xl font-semibold tracking-tight text-[#2e3440] dark:text-white"
-        >
-            Hello! I’m Dishan Sachin.
+        <h1 class="mb-8 text-2xl font-medium tracking-tighter">
+            hi, I am Dishan Sachin
         </h1>
-        <p class="font-serif text-lg text-[#676767] dark:text-white">
-            I am a software developer, writer, and an undergraduate student at the Java Institute For Advanced Technology. I spend most of my time reading books and articles.
+        <p class="prose prose-neutral dark:prose-invert">
+            I am a software developer, writer, and an undergraduate student at
+            the Java Institute For Advanced Technology. I spend most of my time
+            reading books and articles.
         </p>
-        <p class="mt-4 font-serif text-lg text-[#676767] dark:text-white">
-            I am a co-founder of Ruzzz, a software development company that builds e-commerce solutions for small and medium-sized businesses. And unfortunately, I cannot share much about it at the moment. more to come soon.
-        </p>
-        <p class="mt-4 font-serif text-lg text-[#676767] dark:text-white">
+        <p class="mt-8 prose prose-neutral dark:prose-invert">
             Specifically, I am a passionate Backend Developer who loves solving complex problems. With a knack for building efficient and scalable systems. I do frontend too, but I prefer to work on the backend.
         </p>
     </section>
-    <section class="mt-8">
-        <div class="flex justify-between items-center">
-            <h1
-                class="font-sans text-3xl font-semibold tracking-tight text-[#2e3440] dark:text-white"
-            >
-                I write ⌨️
-            </h1>
-            <a
-                href="/blog"
-                class="text-[#2e3440] font-semibold underline dark:text-white"
-            >
-                All posts
-            </a>
-        </div>
-        <p class="py-4 font-serif text-lg text-[#676767] dark:text-white">
-            Here are some of my recent posts. And If you are wondering what I write
-            about, I write about software development, productivity, and
-            personal growth.
-        </p>
-        <ul class="list-disc">
-            {
-                posts.map((post) => {
-                    return (
-                        <li class="pt-3">
-                            <a
-                                href={`/blog/${post.slug}`}
-                                class="font-serif text-lg text-[#2e3440] hover:underline dark:text-white"
-                            >
-                                {post.data.title}
-                            </a>
-                        </li>
-                    );
-                })
-            }
-        </ul>
-    </section>
-    <!-- START -->
-    <section class="mt-12 hidden">
-        <h1
-            class="mb-3 font-sans text-3xl font-semibold tracking-tight text-[#2e3440] dark:text-white"
-        >
-            I watch 👀
-        </h1>
-        <p class="font-serif text-lg text-[#676767] dark:text-white">
-            Here is a small list of movies I like.
-        </p>
-        <ul class="list-disc">
-            <li class="pt-3">
-                <a
-                    target="_blank"
-                    href="https://www.imdb.com/title/tt0103064"
-                    class="font-serif text-lg text-[#2e3440] hover:underline dark:text-white"
-                >
-                    Treminator 2: Judgement Day
-                </a>
-            </li>
-            <li class="pt-3">
-                <a
-                    target="_blank"
-                    href="https://www.imdb.com/title/tt0993846"
-                    class="font-serif text-lg text-[#2e3440] hover:underline dark:text-white"
-                >
-                    The Wolf of Wall Street
-                </a>
-            </li>
-            <li class="pt-3">
-                <a
-                    target="_blank"
-                    href="https://www.imdb.com/title/tt1790864"
-                    class="font-serif text-lg text-[#2e3440] hover:underline dark:text-white"
-                >
-                    The Maze Runner
-                </a>
-            </li>
-            <li class="pt-3">
-                <a
-                    target="_blank"
-                    href="https://www.imdb.com/title/tt15398776"
-                    class="font-serif text-lg text-[#2e3440] hover:underline dark:text-white"
-                >
-                    Oppenheimer
-                </a>
-            </li>
-        </ul>
-    </section>
-    <!-- END -->
 </Layout>

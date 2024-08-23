@@ -7,8 +7,8 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Inter Variable', ...defaultTheme.fontFamily.sans],
-                serif: ['Nunito Variable', ...defaultTheme.fontFamily.serif],
+                sans: ['Geist Sans', ...defaultTheme.fontFamily.sans],
+                mono: ['Geist Mono', ...defaultTheme.fontFamily.mono]
             },
         },
     },

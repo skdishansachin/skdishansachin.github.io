@@ -23,35 +23,91 @@ if (post.data.status === 'draft') {
 
 <Layout title={post.data.title} description={post.data.description}>
     <article data-pagefind-body>
-        <h1
-            class="text-4xl font-bold tracking-tight text-black dark:text-white"
-        >
+        <h1 class="title max-w-[650px] text-2xl font-medium tracking-tighter">
             {post.data.title}
         </h1>
-        <p class="my-4 text-lg tracking-tight text-black dark:text-white">
-            {formatDate(post.data.publishedAt)}
-        </p>
-        <div
+        <article
             id="content"
-            class="prose prose-lg prose-gray mt-4 max-w-full font-serif dark:prose-invert"
+            class="prose-quoteless prose prose-neutral dark:prose-invert"
         >
             <Content />
-        </div>
+        </article>
     </article>
 </Layout>
 
 <style is:global>
     /* You can override the line height with `!leading-tight`  */
-    #content .astro-code {
-        @apply rounded-sm;
+    prose .anchor {
+        @apply invisible absolute no-underline;
+
+        margin-left: -1em;
+        padding-right: 0.5em;
+        width: 80%;
+        max-width: 700px;
+        cursor: pointer;
     }
 
-    #content h1,
-    h2,
+    .anchor:hover {
+        @apply visible;
+    }
+
+    .prose a {
+        @apply decoration-neutral-400 decoration-[0.1em] underline-offset-2 transition-all dark:decoration-neutral-600;
+    }
+
+    .prose .anchor:after {
+        @apply text-neutral-300 dark:text-neutral-700;
+        content: '#';
+    }
+
+    .prose *:hover > .anchor {
+        @apply visible;
+    }
+
+    .prose pre {
+        @apply overflow-x-auto rounded-lg border border-neutral-200 bg-neutral-50 dark:border-neutral-900 dark:bg-neutral-900;
+    }
+
+    .prose code {
+        @apply rounded-lg px-1 py-0.5;
+    }
+
+    .prose pre code {
+        @apply p-0;
+        border: initial;
+        line-height: 1.5;
+    }
+
+    .prose code span {
+        @apply font-medium;
+    }
+
+    .prose img {
+        /* Don't apply styles to next/image */
+        @apply m-0;
+    }
+
+    .prose h2,
     h3,
-    h4,
-    h5,
-    h6 {
-        @apply font-sans tracking-tight;
+    h4 {
+        @apply font-medium tracking-tighter !important;
+    }
+
+    .prose strong {
+        @apply font-medium;
+    }
+
+    .prose > :first-child {
+        /* Override removing top margin, causing layout shift */
+        margin-top: 1.25em !important;
+        margin-bottom: 1.25em !important;
+    }
+
+    .prose .callout > p {
+        margin: 0 !important;
+    }
+
+    .title {
+        text-wrap: balance;
     }
 </style>

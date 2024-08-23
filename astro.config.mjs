@@ -13,10 +13,6 @@ export default defineConfig({
     }),
     markdown: {
         shikiConfig: {
-            themes: {
-                light: 'github-light',
-                dark: 'github-dark',
-            },
             // Enable word wrap to prevent horizontal scrolling
             wrap: false,
         },

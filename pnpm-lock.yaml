@@ -14,12 +14,12 @@ dependencies:
   '@astrojs/vercel':
     specifier: ^7.8.0
     version: 7.8.0(astro@4.14.3)
-  '@fontsource-variable/inter':
-    specifier: ^5.0.20
-    version: 5.0.20
-  '@fontsource-variable/nunito':
-    specifier: ^5.0.20
-    version: 5.0.20
+  '@fontsource/geist-mono':
+    specifier: ^5.0.3
+    version: 5.0.3
+  '@fontsource/geist-sans':
+    specifier: ^5.0.3
+    version: 5.0.3
   '@vercel/speed-insights':
     specifier: ^1.0.12
     version: 1.0.12
@@ -678,12 +678,12 @@ packages:
     dev: false
     optional: true
 
-  /@fontsource-variable/inter@5.0.20:
-    resolution: {integrity: sha512-dhzG4Zls/tIrf8h0FhTNi8jT/uFwNhdTY2vKe6DYqoXDYOfEcTVZDyh1hKml1rlLT44Y7OoKoGz8w7czDW7twQ==}
+  /@fontsource/geist-mono@5.0.3:
+    resolution: {integrity: sha512-ekY5FNiK7aMxan/c6lgVQa/rIwQ/AMEJZJWY7768jBrLVdkrCxfEfCe1ePpe7C3JnySy7c9R6HC4Xh4ksfjTaw==}
     dev: false
 
-  /@fontsource-variable/nunito@5.0.20:
-    resolution: {integrity: sha512-tlqEAxXOuq0usnkfBe22eeIuG6gbiO2P6SWsSMykD8dmLFNotag6Dg7g9ytGTV90NL+Q4lKObhh5duAeLjeDjg==}
+  /@fontsource/geist-sans@5.0.3:
+    resolution: {integrity: sha512-oGwoSIqNPMvjtCwj1lZaEr47MeiG27XPhypwkF643u1TQduvwbm3V3hYB01JekeaT34SAGP4I1h+WCdRpJkcwA==}
     dev: false
 
   /@img/sharp-darwin-arm64@0.33.5:

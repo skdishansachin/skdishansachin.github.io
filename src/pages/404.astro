@@ -1,16 +1,11 @@
 ---
-import Base from '@components/Base.astro';
+import Layout from '@components/Layout.astro';
 ---
 
-<Base title="404 not found" description="The page your looking for not found">
-    <div class="flex h-screen items-center justify-center">
-        <div class="text-center">
-            <h1 class="text-3xl font-semibold text-black dark:text-white">
-                404 Not Found!
-            </h1>
-            <a href="/" class="font-serif text-black underline dark:text-white"
-                >Go back home</a
-            >
-        </div>
-    </div>
-</Base>
+<Layout title="404 not found" description="The page your looking for not found">
+    <section>
+        <h1 class="mb-8 text-2xl font-medium tracking-tighter">
+            This page not found!
+        </h1>
+    </section>
+</Layout>
