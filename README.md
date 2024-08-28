@@ -15,7 +15,7 @@ npm install
 npm run dev
 ```
 
-**Just a heads up, when you clone this repo, you'll be downloading my entire website, which includes my info and all my blog posts. Be sure to swap out the content with your own. It's a must-do!**
+**Just a heads up, when you clone this repo, you'll be downloading my entire website, which includes my info and all my blog posts. Be sure to swap out the content with your own!**
 
 ## Acknowledgements
 
