@@ -1,4 +1,13 @@
 {
+    "author": {
+        "name": "Dishan Sachin",
+        "email": "skdishansachin@gmail.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/skdishansachin/dishansachin"
+    },
+    "license": "MIT",
     "type": "module",
     "scripts": {
         "dev": "astro dev",
