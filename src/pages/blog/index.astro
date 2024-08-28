@@ -1,7 +1,7 @@
 ---
-import Layout from '@components/Layout.astro';
-
 import { getCollection } from 'astro:content';
+import Layout from '@components/Layout.astro';
+import FormattedDate from '@components/FormattedDate.astro';
 
 const posts = await getCollection('posts', ({ data }) => {
     return data.status === 'published';
@@ -24,9 +24,7 @@ const posts = await getCollection('posts', ({ data }) => {
                             {post.data.title}
                         </a>
                         <p class="text-sm">
-                            {new Date(post.data.publishedAt).toLocaleDateString(
-                                'en-US',
-                            )}
+                            <FormattedDate date={post.data.publishedAt} />
                         </p>
                     </li>
                 );
