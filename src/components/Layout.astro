@@ -1,7 +1,7 @@
 ---
+import SpeedInsights from '@vercel/speed-insights/astro';
 import '@fontsource/geist-sans';
 import '@fontsource/geist-mono';
-
 import Navbar from './Navbar.astro';
 
 interface Props {
@@ -50,6 +50,9 @@ interface Props {
         <meta name="twitter:site" content="@skdishansachin" />
         <meta name="twitter:title" content={Astro.props.title} />
         <meta name="twitter:description" content={Astro.props.description} />
+
+        <!-- Vercel speed insights -->
+        <SpeedInsights />
 
         <style is:global>
             html.dark .astro-code,
