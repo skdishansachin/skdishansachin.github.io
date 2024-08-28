@@ -1,14 +1,10 @@
 ## dishansachin
 
-**Framework**: [Astro](https://astro.build/)
-
-**Styling**: [Tailwind CSS](https://tailwindcss.com/)
-
-**Deployment**: [Vercel](https://vercel.com/)
-
-**Analytics**: [Vercel Analytics](https://vercel.com/analytics/)
-
-**Link Management**: [Dub](https://dub.co/)
+-   **Framework**: [Astro](https://astro.build/)
+-   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+-   **Deployment**: [Vercel](https://vercel.com/)
+-   **Analytics**: [Vercel Analytics](https://vercel.com/analytics/)
+-   **Link Management**: [Dub](https://dub.co/)
 
 ## Run Locally
 
@@ -23,8 +19,8 @@ npm run dev
 
 ## Acknowledgements
 
-- [Lee Robinson](https://leerob.io/)
-- [Sam Rose](https://samwho.dev)
-- [pilcrowOnPaper](https://pilcrowonpaper.com)
+-   [Lee Robinson](https://leerob.io/)
+-   [Sam Rose](https://samwho.dev)
+-   [pilcrowOnPaper](https://pilcrowonpaper.com)
 
 This repo under MIT License. See [LICENSE](https://github.com/skdishansachin/dishansachin/blob/master/LICENSE)
