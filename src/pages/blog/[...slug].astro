@@ -26,6 +26,9 @@ if (post.data.status === 'draft') {
         <h1 class="title max-w-[650px] text-2xl font-medium tracking-tighter">
             {post.data.title}
         </h1>
+        <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-2 mb-8">
+            {new Date(post.data.publishedAt).toLocaleDateString('en-US')}
+        </p>
         <article
             id="content"
             class="prose-quoteless prose prose-neutral dark:prose-invert"
