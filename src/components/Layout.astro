@@ -28,8 +28,9 @@ interface Props {
             rel="alternate"
             type="application/rss+xml"
             title="Dishan Sachin's portfolio"
-            href={new URL("rss.xml", Astro.site)}
+            href={new URL('rss.xml', Astro.site)}
         />
+        <link rel="sitemap" href="/sitemap-index.xml" />
 
         <!-- OpenGraph tags -->
         <meta name="og:title" content={Astro.props.title} />
