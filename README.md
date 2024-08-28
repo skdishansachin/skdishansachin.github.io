@@ -1,15 +1,15 @@
 ## dishansachin
 
--   **Framework**: [Astro](https://astro.build/)
--   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
--   **Deployment**: [Vercel](https://vercel.com/)
--   **Analytics**: [Vercel Analytics](https://vercel.com/analytics/)
--   **Link Management**: [Dub](https://dub.co/)
+-   **Framework**: [Astro](https://astro.build)
+-   **Styling**: [Tailwind CSS](https://tailwindcss.com)
+-   **Deployment**: [Vercel](https://vercel.com)
+-   **Analytics**: [Vercel Analytics](https://vercel.com/analytics)
+-   **Link Management**: [Dub](https://dub.co)
 
 ## Run Locally
 
 ```bash
-git clone https://github.com/skdishansa/dishansachin.git <project-name>
+git clone https://github.com/skdishansachin/dishansachin.git <project-name>
 cd <project-name>
 npm install
 npm run dev
@@ -19,7 +19,7 @@ npm run dev
 
 ## Acknowledgements
 
--   [Lee Robinson](https://leerob.io/)
+-   [Lee Robinson](https://leerob.io)
 -   [Sam Rose](https://samwho.dev)
 -   [pilcrowOnPaper](https://pilcrowonpaper.com)
 
