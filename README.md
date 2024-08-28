@@ -22,5 +22,6 @@ npm run dev
 -   [Lee Robinson](https://leerob.io)
 -   [Sam Rose](https://samwho.dev)
 -   [pilcrowOnPaper](https://pilcrowonpaper.com)
+-   [Michael Andreuzza](https://michaelandreuzza.com)
 
 This repo under MIT License. See [LICENSE](https://github.com/skdishansachin/dishansachin/blob/master/LICENSE)
