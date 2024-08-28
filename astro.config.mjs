@@ -1,7 +1,6 @@
 import { defineConfig } from 'astro/config';
 import vercel from '@astrojs/vercel/static';
 import tailwind from '@astrojs/tailwind';
-import rss from "@astrojs/rss";
 
 // https://astro.build/config
 export default defineConfig({
@@ -23,5 +22,5 @@ export default defineConfig({
             },
         },
     },
-    integrations: [tailwind(), rss()],
+    integrations: [tailwind()],
 });
