@@ -1,9 +1,13 @@
 ## dishansachin
 
 **Framework**: [Astro](https://astro.build/)
+
 **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+
 **Deployment**: [Vercel](https://vercel.com/)
+
 **Analytics**: [Vercel Analytics](https://vercel.com/analytics/)
+
 **Link Management**: [Dub](https://dub.co/)
 
 ## Run Locally
