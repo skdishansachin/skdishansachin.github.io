@@ -13,8 +13,13 @@ export default defineConfig({
     }),
     markdown: {
         shikiConfig: {
+            theme: 'github',
             // Enable word wrap to prevent horizontal scrolling
             wrap: false,
+            themes: {
+                dark: 'github-dark',
+                light: 'github-light',
+            },
         },
     },
     integrations: [tailwind()],
