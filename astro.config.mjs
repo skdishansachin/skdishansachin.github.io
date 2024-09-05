@@ -1,13 +1,12 @@
 import { defineConfig } from 'astro/config';
-import vercel from '@astrojs/vercel/static';
+import vercelStatic from '@astrojs/vercel/static';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
-// https://astro.build/config
 export default defineConfig({
     site: 'https://dishansachin.vercel.app',
     output: 'static',
-    adapter: vercel({
+    adapter: vercelStatic({
         webAnalytics: {
             enabled: true,
         },
@@ -15,7 +14,6 @@ export default defineConfig({
     markdown: {
         shikiConfig: {
             theme: 'github',
-            // Enable word wrap to prevent horizontal scrolling
             wrap: false,
             themes: {
                 dark: 'github-dark',
