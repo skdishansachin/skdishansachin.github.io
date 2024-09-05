@@ -1,13 +1,13 @@
 ---
-import SpeedInsights from '@vercel/speed-insights/astro';
-import '@fontsource/geist-sans';
-import '@fontsource/geist-mono';
-import Navbar from './Navbar.astro';
+import SpeedInsights from "@vercel/speed-insights/astro"
+import "@fontsource/geist-sans"
+import "@fontsource/geist-mono"
+import Navbar from "./Navbar.astro"
 
 interface Props {
-    title: string;
-    description: string;
-    ogId?: string;
+    title: string
+    description: string
+    ogId?: string
 }
 ---
 
@@ -23,7 +23,7 @@ interface Props {
         <meta name="author" content="Dishan Sacin" />
 
         <title>{Astro.props.title}</title>
-        
+
         <link rel="preconnect" href="/" crossorigin />
         <link rel="preload" href="/profile.png" as="image" />
         <link rel="icon" href="/profile.png" />
@@ -32,7 +32,7 @@ interface Props {
             rel="alternate"
             type="application/rss+xml"
             title="Dishan Sachin's portfolio"
-            href={new URL('rss.xml', Astro.site)}
+            href={new URL("rss.xml", Astro.site)}
         />
         <link rel="sitemap" href="/sitemap-index.xml" />
 
@@ -68,7 +68,7 @@ interface Props {
     </head>
 
     <body
-        class="mx-4 mb-40 mt-8 flex max-w-2xl flex-col antialiased md:flex-row lg:mx-auto"
+        class="mx-4 mx-auto mb-40 mt-8 max-w-2xl antialiased"
     >
         <main class="mt-6 flex min-w-0 flex-auto flex-col px-2 md:px-0">
             <Navbar />

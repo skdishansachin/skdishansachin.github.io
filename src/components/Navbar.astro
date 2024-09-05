@@ -1,18 +1,18 @@
 ---
 const navItems = {
-    '/': {
-        name: 'home',
+    "/": {
+        name: "home",
     },
-    '/blog': {
-        name: 'blog',
+    "/blog": {
+        name: "blog",
     },
-};
+}
 ---
 
 <aside class="-ml-[8px] mb-16 tracking-tight">
     <div class="lg:sticky lg:top-20">
         <nav
-            class="fade relative flex scroll-pr-6 flex-row items-start px-0 pb-0 md:relative md:overflow-auto"
+            class="flex place-content-between place-items-start md:overflow-auto"
             id="nav"
         >
             <div class="flex flex-row space-x-0 pr-10">
@@ -27,6 +27,13 @@ const navItems = {
                     ))
                 }
             </div>
+            <a href="/">
+                <img
+                    src="/profile.png"
+                    alt="profile picture"
+                    class="size-8 rounded-full transition-transform duration-200 ease-in-out sm:size-10"
+                /></a
+            >
         </nav>
     </div>
 </aside>
