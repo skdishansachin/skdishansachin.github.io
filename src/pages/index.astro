@@ -1,11 +1,5 @@
 ---
-import Layout from '@components/Layout.astro';
-
-import { getCollection } from 'astro:content';
-
-const posts = await getCollection('posts', ({ data }) => {
-    return data.status === 'published' && data.isFeatured === true;
-});
+import Layout from "@components/Layout.astro"
 ---
 
 <Layout title="Dishan Sachin" description="Dishan Sachin's personal website">

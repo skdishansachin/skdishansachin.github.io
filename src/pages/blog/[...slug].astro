@@ -1,31 +1,34 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
-import Layout from '@components/Layout.astro';
-import FormattedDate from '@components/FormattedDate.astro';
+import { getCollection, type CollectionEntry } from "astro:content"
+import Layout from "@components/Layout.astro"
+import FormattedDate from "@components/FormattedDate.astro"
 
 export async function getStaticPaths() {
-    const posts = await getCollection('posts');
+    const posts = await getCollection("posts")
     return posts.map((post) => ({
         params: { slug: post.slug },
         props: post,
-    }));
+    }))
 }
-type Props = CollectionEntry<'posts'>;
+type Props = CollectionEntry<"posts">
 
-const post = Astro.props;
-const { Content } = await post.render();
+const post = Astro.props
+const { Content } = await post.render()
 
-if (post.data.status === 'draft') {
-    return Astro.redirect('/blog');
+if (post.data.status === "draft") {
+    return Astro.redirect("/blog")
 }
 ---
 
-<Layout title={post.data.title} description={post.data.description}>
-    <article data-pagefind-body>
+<Layout
+    title={`${post.data.title} | Dishan Sachin`}
+    description={post.data.description}
+>
+    <article>
         <h1 class="title max-w-[650px] text-2xl font-medium tracking-tighter">
             {post.data.title}
         </h1>
-        <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-2 mb-8">
+        <p class="mb-8 mt-2 text-sm text-neutral-600 dark:text-neutral-400">
             <FormattedDate date={post.data.publishedAt} />
         </p>
         <article
@@ -59,7 +62,7 @@ if (post.data.status === 'draft') {
 
     .prose .anchor:after {
         @apply text-neutral-300 dark:text-neutral-700;
-        content: '#';
+        content: "#";
     }
 
     .prose *:hover > .anchor {

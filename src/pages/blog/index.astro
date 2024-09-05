@@ -1,33 +1,33 @@
 ---
-import { getCollection } from 'astro:content';
-import Layout from '@components/Layout.astro';
-import FormattedDate from '@components/FormattedDate.astro';
+import { getCollection } from "astro:content"
+import Layout from "@components/Layout.astro"
+import FormattedDate from "@components/FormattedDate.astro"
 
-const posts = await getCollection('posts', ({ data }) => {
-    return data.status === 'published';
-});
+const posts = await getCollection("posts", ({ data }) => {
+    return data.status === "published"
+})
 ---
 
-<Layout title="Dishan Sachin | Blog" description="Read my blog.">
-    <h1 class="font-medium text-2xl mb-8 tracking-tighter">
-        my blog
-      </h1>
+<Layout title="Blog | Dishan Sachin" description="Read my blog.">
+    <h1 class="mb-8 text-2xl font-medium tracking-tighter">my blog</h1>
     <ul class="list-disc">
         {
             posts.map((post) => {
                 return (
-                    <li class="flex flex-col space-y-1 mb-4">
-                        <a
-                            href={`/blog/${post.slug}`}
-                            class="text-neutral-900 dark:text-neutral-100 tracking-tight"
-                        >
-                            {post.data.title}
-                        </a>
-                        <p class="text-sm">
-                            <FormattedDate date={post.data.publishedAt} />
-                        </p>
+                    <li class="mb-4 flex flex-col space-y-1">
+                        <article>
+                            <a
+                                href={`/blog/${post.slug}`}
+                                class="tracking-tight text-neutral-900 dark:text-neutral-100"
+                            >
+                                {post.data.title}
+                            </a>
+                            <p class="text-sm">
+                                <FormattedDate date={post.data.publishedAt} />
+                            </p>
+                        </article>
                     </li>
-                );
+                )
             })
         }
     </ul>
