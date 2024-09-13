@@ -6,7 +6,6 @@ export async function GET(context: APIContext) {
     const posts = await getCollection("posts", ({ data }) => {
         return data.status === "published"
     })
-
     return rss({
         title: "Dishan Sachin’s Blog",
         description: "A blog about software development.",
