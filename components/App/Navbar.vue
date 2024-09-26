@@ -17,7 +17,7 @@
                             <Icon
                                 aria-hidden="true"
                                 :name="item.icon"
-                                class="z-10 h-5 w-5"
+                                class="z-10 size-5"
                             />
                             <span
                                 v-if="$route.path === item.path"
@@ -46,27 +46,20 @@ const headerRef = ref(null)
 const { styles } = useFixedHeader(headerRef)
 
 const items = [
-    { name: "Home", path: "/", icon: "solar:home-smile-outline" },
     {
-        name: "Projects",
-        path: "/projects",
-        icon: "solar:folder-with-files-outline",
+        name: "Home",
+        path: "/",
+        icon: "lucide:house"
     },
     {
         name: "Articles",
         path: "/articles",
-        icon: "solar:document-add-outline",
-    },
-    { name: "Lab", path: "/lab", icon: "heroicons:beaker" },
-    {
-        name: "What's in my bag?",
-        path: "/whats-in-my-bag",
-        icon: "solar:backpack-outline",
+        icon: "lucide:library",
     },
     {
-        name: "Bookmarks",
-        path: "/bookmarks",
-        icon: "solar:bookmark-linear",
+        name: "Thoughts",
+        path: "/thoughts",
+        icon: "lucide:cloud",
     },
 ]
 </script>

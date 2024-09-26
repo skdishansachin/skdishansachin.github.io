@@ -28,23 +28,18 @@
 const links = [
     {
         name: "Twitter",
-        url: "https://twitter.com/fayazara",
+        url: "https://twitter.com/skdishansachin",
         icon: "mdi:twitter",
     },
     {
         name: "GitHub",
-        url: "https://github.com/fayazara",
+        url: "https://github.com/skdishansachin",
         icon: "mdi:github",
     },
     {
         name: "Linkedin",
-        url: "https://www.linkedin.com/in/fayaz-aralikatti/",
+        url: "https://www.linkedin.com/in/skdishansachin/",
         icon: "mdi:linkedin",
-    },
-    {
-        name: "Telegram",
-        url: "https://t.me/fayazara",
-        icon: "mdi:telegram",
     },
 ]
 </script>
