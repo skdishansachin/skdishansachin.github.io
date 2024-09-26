@@ -30,7 +30,6 @@ This creates a new directory for your project and initializes a new Node.js proj
 Install Express.js using npm (Node Package Manager):
 
 ```bash
-Copy code
 npm install express --save
 This command installs Express.js and adds it to your project's dependencies.
 ```

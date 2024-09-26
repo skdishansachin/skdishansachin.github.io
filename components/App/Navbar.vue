@@ -49,7 +49,7 @@ const items = [
     {
         name: "Home",
         path: "/",
-        icon: "lucide:house"
+        icon: "lucide:house",
     },
     {
         name: "Articles",

@@ -21,7 +21,7 @@
                 class="flex-1"
                 size="lg"
             />
-            <UButton label="Join &rarr;" size="lg" color="black" />
+            <UButton label="Join" size="lg" color="black" />
         </div>
     </div>
 </template>

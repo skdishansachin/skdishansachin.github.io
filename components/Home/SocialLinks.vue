@@ -27,11 +27,6 @@
 <script lang="ts" setup>
 const links = [
     {
-        name: "Twitter",
-        url: "https://twitter.com/skdishansachin",
-        icon: "mdi:twitter",
-    },
-    {
         name: "GitHub",
         url: "https://github.com/skdishansachin",
         icon: "mdi:github",
@@ -40,6 +35,16 @@ const links = [
         name: "Linkedin",
         url: "https://www.linkedin.com/in/skdishansachin/",
         icon: "mdi:linkedin",
+    },
+    {
+        name: "Twitter",
+        url: "https://twitter.com/skdishansachin",
+        icon: "mdi:twitter",
+    },
+    {
+        name: "Mail",
+        url: "mailto:skdishansachin@gmail.com",
+        icon: "mdi:email",
     },
 ]
 </script>

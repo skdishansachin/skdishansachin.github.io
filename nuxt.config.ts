@@ -6,7 +6,8 @@ export default defineNuxtConfig({
         "@nuxt/image",
         "@nuxt/content",
         "@vueuse/nuxt",
-        '@nuxt/fonts',
+        "@nuxt/fonts",
+        "@nuxtjs/tailwindcss",
     ],
     ui: {
         icons: ["heroicons", "lucide"],
@@ -27,5 +28,9 @@ export default defineNuxtConfig({
         highlight: {
             theme: "github-dark",
         },
+    },
+    tailwindcss: {
+        configPath: "tailwind.config",
+        viewer: false,
     },
 })
