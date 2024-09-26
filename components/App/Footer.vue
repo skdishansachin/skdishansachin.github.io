@@ -4,8 +4,5 @@
     >
         <br />
         <p>© 2024 Dishan Sachin. All rights reserved.</p>
-        <p>
-            Designed by <a href="https://github.com/fayazara">Fayaz Ahmed.</a>
-        </p>
     </footer>
 </template>

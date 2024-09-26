@@ -1,16 +1,18 @@
 export default defineNuxtConfig({
-    devtools: { enabled: false },
+    devtools: { enabled: true },
     modules: [
         "@nuxt/ui",
-        "nuxt-icon",
+        "@nuxt/icon",
         "@nuxt/image",
         "@nuxt/content",
         "@vueuse/nuxt",
         "@nuxt/fonts",
         "@nuxtjs/tailwindcss",
     ],
-    ui: {
-        icons: ["heroicons", "lucide"],
+    runtimeConfig: {
+        public: {
+            appUrl: process.env.NUXT_PUBLIC_APP_URL,
+        },
     },
     app: {
         pageTransition: { name: "page", mode: "out-in" },
@@ -20,7 +22,7 @@ export default defineNuxtConfig({
                 class: "h-full",
             },
             bodyAttrs: {
-                class: "antialiased bg-gray-50 dark:bg-black min-h-screen",
+                class: "antialiased bg-gray-50 tracking-tight dark:bg-black min-h-screen",
             },
         },
     },
@@ -33,4 +35,5 @@ export default defineNuxtConfig({
         configPath: "tailwind.config",
         viewer: false,
     },
+    compatibilityDate: "2024-09-26",
 })

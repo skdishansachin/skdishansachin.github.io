@@ -56,10 +56,5 @@ const items = [
         path: "/articles",
         icon: "lucide:library",
     },
-    {
-        name: "Thoughts",
-        path: "/thoughts",
-        icon: "lucide:cloud",
-    },
 ]
 </script>

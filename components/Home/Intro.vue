@@ -2,7 +2,7 @@
     <div class="space-y-6">
         <NuxtImg
             src="/avatar.png"
-            alt="Fayaz Ahmed"
+            alt="Dishan Sachin"
             class="h-12 w-12 rounded-full border border-gray-300 bg-gray-200 ring-2 ring-gray-200 transition-all duration-300 hover:ring-4 sm:h-16 sm:w-16 dark:border-gray-800 dark:bg-gray-900 dark:ring-white/10"
             sizes="48px sm:64px"
             placeholder
@@ -11,7 +11,7 @@
         <h1
             class="text-xl font-bold tracking-tight text-gray-800 dark:text-gray-100"
         >
-            Hello!
+            Dishan Sachin
         </h1>
         <p class="text-gray-900 dark:text-gray-400">
             I'm Fayaz, I work as a software, product engineer and designer from
@@ -34,7 +34,7 @@
 
 <script setup>
 useSeoMeta({
-    title: "Fayaz Ahmed",
+    title: "Dishan Sachin",
     description:
         "I'm Fayaz, your friendly neighborhood software, product engineer and designer from Bengaluru, India. I specialize in building web applications and sites using Javascript, React, Vue & Node.",
 })

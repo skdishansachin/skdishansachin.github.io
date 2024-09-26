@@ -5,22 +5,29 @@
         >
             <ContentDoc v-slot="{ doc }" tag="article">
                 <article>
-                    <h1>{{ doc.title }}</h1>
+                    <h1 class="text-2xl font-semibold">{{ doc.title }}</h1>
                     <ContentRenderer :value="doc" />
                 </article>
             </ContentDoc>
         </div>
+        <div class="h-16"></div>
+        <UDivider />
+        <div class="h-16"></div>
+        <HomeNewsletter />
     </main>
 </template>
+
 <script setup>
+const config = useRuntimeConfig()
 const route = useRoute()
 const { slug } = route.params
 useSeoMeta({
-    ogImage: `https://fayazahmed.com/articles/${slug}.png`,
+    ogImage: `${config.public.appUrl}/articles/${slug}.png`,
     twitterCard: "summary_large_image",
-    articleAuthor: "Fayaz Ahmed",
+    articleAuthor: "Dishan Sachin",
 })
 </script>
+
 <style>
 .prose h2 a,
 .prose h3 a {
