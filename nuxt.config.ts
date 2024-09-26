@@ -1,14 +1,12 @@
 export default defineNuxtConfig({
-    devtools: { enabled: true },
+    devtools: { enabled: false },
     modules: [
         "@nuxt/ui",
         "nuxt-icon",
-        "@nuxtjs/google-fonts",
-        "@nuxtjs/fontaine",
         "@nuxt/image",
         "@nuxt/content",
-        "@nuxthq/studio",
         "@vueuse/nuxt",
+        '@nuxt/fonts',
     ],
     ui: {
         icons: ["heroicons", "lucide"],
@@ -28,12 +26,6 @@ export default defineNuxtConfig({
     content: {
         highlight: {
             theme: "github-dark",
-        },
-    },
-    googleFonts: {
-        display: "swap",
-        families: {
-            Inter: [400, 500, 600, 700, 800, 900],
         },
     },
 })
