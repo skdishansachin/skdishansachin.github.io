@@ -3,11 +3,11 @@ import { z } from "zod"
 import { ref } from "vue"
 import type { Form, FormError, FormSubmitEvent } from "#ui/types"
 
-type Schema = z.output<typeof schema>
-
 const schema = z.object({
     email: z.string().email("Please provide a valid email address."),
 })
+
+type Schema = z.output<typeof schema>
 
 const state = reactive({
     email: "",
@@ -22,18 +22,6 @@ const isLoading: Ref<boolean> = ref(false)
 async function formSubmition(event: FormSubmitEvent<Schema>) {
     event.preventDefault()
     form.value?.clear()
-
-    isLoading.value = true
-
-    const response = await $fetch("/api/v1/newsletter/subscribe", {
-        method: "POST",
-        body: {
-            email: event.data.email,
-        },
-    })
-
-    console.log(response)
-    
 }
 </script>
 
