@@ -10,6 +10,10 @@ export default defineNuxtConfig({
         "@nuxtjs/tailwindcss",
     ],
     runtimeConfig: {
+        turso: {
+            databaseUrl: "",
+            authToken: "",
+        },
         public: {
             appUrl: process.env.NUXT_PUBLIC_APP_URL,
         },

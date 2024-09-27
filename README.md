@@ -1,0 +1,12 @@
+## SQL Schema
+
+```sql
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE IF NOT EXISTS `newsletters` (
+    `id` CHAR(21) NOT NULL PRIMARY KEY,
+    `email` VARCHAR(255) NOT NULL UNIQUE,
+    `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+COMMIT;
+```

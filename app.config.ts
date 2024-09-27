@@ -10,6 +10,9 @@ export default defineAppConfig({
             },
         },
         button: {
+            default: {
+                loadingIcon: "lucide:loader-circle",
+            },
             rounded:
                 "rounded-md transition-transform active:scale-x-[0.98] active:scale-y-[0.99]",
         },
