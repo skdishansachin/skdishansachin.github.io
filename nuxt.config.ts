@@ -1,14 +1,14 @@
 export default defineNuxtConfig({
-    devtools: { enabled: true },
+    devtools: { enabled: false },
     modules: [
-      "@nuxt/ui",
-      "@nuxt/icon",
-      "@nuxt/image",
-      "@nuxt/content",
-      "@vueuse/nuxt",
-      "@nuxt/fonts",
-      "@nuxtjs/tailwindcss",
-      "nuxt-security",
+        "@nuxt/ui",
+        "@nuxt/icon",
+        "@nuxt/image",
+        "@nuxt/content",
+        "@vueuse/nuxt",
+        "@nuxt/fonts",
+        "@nuxtjs/tailwindcss",
+        "nuxt-security",
     ],
     runtimeConfig: {
         public: {
