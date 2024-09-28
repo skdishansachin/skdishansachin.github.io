@@ -1,19 +1,16 @@
 export default defineNuxtConfig({
     devtools: { enabled: true },
     modules: [
-        "@nuxt/ui",
-        "@nuxt/icon",
-        "@nuxt/image",
-        "@nuxt/content",
-        "@vueuse/nuxt",
-        "@nuxt/fonts",
-        "@nuxtjs/tailwindcss",
+      "@nuxt/ui",
+      "@nuxt/icon",
+      "@nuxt/image",
+      "@nuxt/content",
+      "@vueuse/nuxt",
+      "@nuxt/fonts",
+      "@nuxtjs/tailwindcss",
+      "nuxt-security",
     ],
     runtimeConfig: {
-        turso: {
-            databaseUrl: "",
-            authToken: "",
-        },
         public: {
             appUrl: process.env.NUXT_PUBLIC_APP_URL,
         },
