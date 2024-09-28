@@ -10,10 +10,10 @@
                 </article>
             </ContentDoc>
         </div>
-        <div class="h-16"></div>
-        <UDivider />
-        <div class="h-16"></div>
-        <HomeNewsletter />
+        <!-- <div class="h-16"></div> -->
+        <!-- <UDivider /> -->
+        <!-- <div class="h-16"></div>
+        <HomeNewsletter /> -->
     </main>
 </template>
 

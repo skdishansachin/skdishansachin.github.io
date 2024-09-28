@@ -4,24 +4,33 @@ import { ref } from "vue"
 import type { Form, FormError, FormSubmitEvent } from "#ui/types"
 
 const schema = z.object({
-    email: z.string().email("Please provide a valid email address."),
+    email: z
+        .string({
+            message: "Email address is required.",
+        })
+        .email("Invalid email address."),
 })
 
 type Schema = z.output<typeof schema>
 
 const state = reactive({
-    email: "",
+    email: undefined,
 })
 
-type FormData = z.infer<typeof schema>
-
-const form = ref<Form<FormData>>()
+const form = ref<Form<typeof state>>()
 
 const isLoading: Ref<boolean> = ref(false)
 
-async function formSubmition(event: FormSubmitEvent<Schema>) {
-    event.preventDefault()
-    form.value?.clear()
+async function onSubmit(event: FormSubmitEvent<Schema>) {
+    isLoading.value = true
+    try {
+    } catch (error: any) {
+        console.error(error)
+    } finally {
+        form.value?.clear()
+        state.email = undefined
+        isLoading.value = false
+    }
 }
 </script>
 
@@ -41,12 +50,7 @@ async function formSubmition(event: FormSubmitEvent<Schema>) {
             Get notified when I publish something new, and unsubscribe at any
             time.
         </p>
-        <UForm
-            ref="form"
-            :state="state"
-            :schema="schema"
-            @submit="formSubmition"
-        >
+        <UForm ref="form" :schema="schema" :state="state" @submit="onSubmit">
             <div class="mt-6 flex items-start gap-3">
                 <UFormGroup name="email" size="lg" class="flex-1">
                     <UInput

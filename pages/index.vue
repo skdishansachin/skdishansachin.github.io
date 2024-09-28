@@ -4,7 +4,7 @@
             <HomeIntro />
             <HomeSocialLinks />
             <HomeFeaturedArticles />
-            <HomeNewsletter />
+            <!-- <HomeNewsletter /> -->
         </div>
     </main>
 </template>
