@@ -17,7 +17,7 @@
                             <Icon
                                 aria-hidden="true"
                                 :name="item.icon"
-                                class="z-10 size-5"
+                                class="z-10 size-6"
                             />
                             <span
                                 v-if="$route.path === item.path"
@@ -55,6 +55,11 @@ const items = [
         name: "Articles",
         path: "/articles",
         icon: "lucide:library",
+    },
+    {
+        name: "Uses",
+        path: "/uses",
+        icon: "lucide:briefcase",
     },
 ]
 </script>
