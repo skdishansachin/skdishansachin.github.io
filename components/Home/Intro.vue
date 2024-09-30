@@ -11,7 +11,7 @@
         <h1
             class="text-xl font-semibold tracking-tight text-gray-800 dark:text-gray-100"
         >
-            Hello, my name is Dishan Sachin.
+            Dishan Sachin.
         </h1>
         <p class="text-gray-900 dark:text-gray-400">
             I am a software developer and also a casual writer. Most of the
