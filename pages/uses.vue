@@ -1,12 +1,12 @@
 <template>
     <main class="min-h-screen">
         <AppHeader
-            class="mb-12"
+            class="mb-10"
             title="What I use"
             :description="description"
         />
-        <div class="space-y-24">
-            <ul class="space-y-8">
+        <div class="space-y-20">
+            <ul class="space-y-5">
                 <AppUsesHeader title="Software" />
                 <AppUsesItem
                     v-for="(item, id) in software"

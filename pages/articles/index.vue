@@ -1,7 +1,7 @@
 <template>
     <main class="min-h-screen">
-        <AppHeader class="mb-6" title="Articles" :description="description" />
-        <ul class="space-y-10">
+        <AppHeader class="mb-10" title="Articles" :description="description" />
+        <ul class="space-y-8">
             <li v-for="(article, id) in articles" :key="id">
                 <AppArticleCard :article="article" />
             </li>
@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-const description = "A collection of articles on development and more."
+const description = "I like sharing things that every developer should know. It takes time and research to put it all together, but I hope you find it helpful!"
 useSeoMeta({
     title: "Articles | Dishan Sachin",
     description,
