@@ -10,7 +10,8 @@
 </template>
 
 <script setup>
-const description = "I like sharing things that every developer should know. It takes time and research to put it all together, but I hope you find it helpful!"
+const description =
+    "I like sharing things that every developer should know. It takes time and research to put it all together, but I hope you find it helpful!"
 useSeoMeta({
     title: "Articles | Dishan Sachin",
     description,
