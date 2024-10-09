@@ -7,13 +7,13 @@ slug: "database-caching"
 
 > Phil Karlton: "There are only two hard things in computer science: cache invalidation and naming things."
 
-# Introduction
+## Introduction
 
 The database plays a crucial role in application performance. A poorly performing database can have a significant impact on the overall performance of the application. Querying and retrieving data from the database is resource-intensive and time-consuming, with high memory usage being one of the few drawbacks. A slow database can result in slow application performance, leading to dissatisfied users.
 
 What can be done about this issue? This is where caching becomes important. Caching enables us to minimize the number of database calls, thereby increasing the speed of our application. This article will cover the concepts of caching, as well as the strategies and challenges associated with it.
 
-# What is Database Caching?
+## What is Database Caching?
 
 Database caching is a (buffering) technique used to store frequently accessed data from a database in a faster, more readily available storage layer, typically in memory. This approach significantly reduces the need to query the database directly for each request, thereby improving application performance and reducing the load on the database server.
 
@@ -21,11 +21,11 @@ The main idea behind database caching is to keep a copy of the most frequently a
 
 Database caching can dramatically improve response times and reduce the load on database servers, especially for read-heavy applications. However, it also introduces challenges related to data consistency and cache invalidation, which need to be carefully managed to ensure data integrity.
 
-# Different caching strategies
+## Different caching strategies
 
 Different caching strategies exist, but we will focus on the most common ones to keep things simple. Caching strategies are methods for improving database performance and reducing the load on database servers. These strategies dictate how data is stored, retrieved, and managed within the cache. Each strategy has its advantages and disadvantages, addressing various aspects of application requirements such as data consistency, cache size management, and update frequency. When implementing caching, it is important to select the appropriate strategy or combination of strategies that align with your application's specific needs.
 
-## Cache Aside (Lazy Loading)
+### Cache Aside (Lazy Loading)
 
 Cache Aside, also known as Lazy Loading, is a caching strategy where the application is responsible for maintaining the consistency between the cache and the database. Here's how it works:
 
@@ -54,7 +54,7 @@ Disadvantages:
 
 Cache Aside is widely used in many applications due to its simplicity and effectiveness, especially in scenarios where read operations significantly outnumber write operations.
 
-## Read Through Cache
+### Read Through Cache
 
 Read Through Cache is a strategy where the cache sits between the application and the database. Here's how it works:
 
@@ -81,7 +81,7 @@ Disadvantages:
 
 Read Through Cache is beneficial for read-heavy applications where data doesn't change frequently, providing a good balance between performance and data consistency.
 
-## Write through cache
+### Write through cache
 
 Write Through Cache is a strategy where data is written simultaneously to both the cache and the database. Here's how it works:
 
@@ -108,7 +108,7 @@ Disadvantages:
 
 Write Through Cache is ideal for applications where data consistency is critical and where the application can tolerate slightly higher write latency for the sake of data integrity.
 
-## Write around cache
+### Write around cache
 
 Write Around Cache is a strategy where write operations bypass the cache and go directly to the database. Here's how it works:
 
@@ -135,7 +135,7 @@ Disadvantages:
 
 Write Around Cache is suitable for write-heavy applications where the written data is not immediately required to be read, and where reducing write latency is more critical than read latency.
 
-## Write behind cache
+### Write behind cache
 
 Write Behind Cache is a strategy where write operations are first performed on the cache and then asynchronously updated in the database. Here's how it works:
 
@@ -162,6 +162,6 @@ Disadvantages:
 
 Write Behind Cache is suitable for high-write volume scenarios where slight delays in data consistency can be tolerated for the sake of improved performance.
 
-# Conclusion
+## Conclusion
 
 Database caching is a powerful technique for improving application performance by reducing the load on the database server and minimizing the number of database calls. By storing frequently accessed data in a cache, applications can retrieve data more quickly and efficiently, resulting in faster response times and better user experience.
