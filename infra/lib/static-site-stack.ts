@@ -67,7 +67,7 @@ export class StaticSiteStack extends cdk.Stack {
       destinationBucket: bucket,
       distribution: distribution,
       distributionPaths: ['/*'],
-      sources: [Source.asset(path.join(__dirname, '../../dist'))],
+      sources: [Source.asset(path.join(__dirname, '../../web/dist'))],
     });
 
     new cdk.CfnOutput(this, 'CfnOutCloudFrontUrl', {
