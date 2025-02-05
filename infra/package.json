@@ -2,7 +2,7 @@
   "name": "infra",
   "version": "0.1.0",
   "bin": {
-    "infra": "bin/infra.js"
+    "static-site": "bin/static-site.js"
   },
   "scripts": {
     "build": "tsc",
