@@ -30,6 +30,7 @@ jobs:
         run: pnpm install
 
       - name: Run code formatting
+        working-directory: ${{ matrix.project }}
         run: pnpm biome format --write .
 
       - name: Commit and push changes
