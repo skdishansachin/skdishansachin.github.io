@@ -1,4 +1,4 @@
-name: Deploy Website
+name: Production Deployment
 
 on:
   push:
@@ -12,16 +12,13 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 9
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
+
+      - name: Install PNPM Package Manager Globally
+        run: npm install -g pnpm
 
       - name: Install Web Dependencies
         working-directory: ./web
