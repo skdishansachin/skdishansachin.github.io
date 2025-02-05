@@ -5,6 +5,8 @@ on: [push, pull_request]
 jobs:
   format:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     strategy:
       matrix:
         project: [web, infra]
@@ -32,7 +34,7 @@ jobs:
         run: pnpm biome format --write .
 
       - name: Commit and push changes
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'chore: auto-fix formatting'
           token: ${{ secrets.GITHUB_TOKEN }}
