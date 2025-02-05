@@ -17,6 +17,8 @@ export class StaticSiteStack extends cdk.Stack {
       blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
       enforceSSL: true,
       removalPolicy: cdk.RemovalPolicy.DESTROY,
+      websiteIndexDocument: 'index.html',
+      websiteErrorDocument: '404.html',
     });
 
     bucket.addToResourcePolicy(new PolicyStatement({
@@ -38,16 +40,33 @@ export class StaticSiteStack extends cdk.Stack {
     const distribution = new Distribution(this, 'Distribution', {
       defaultRootObject: 'index.html',
       defaultBehavior: {
+        compress: true,
         origin: S3BucketOrigin.withOriginAccessControl(bucket),
         viewerProtocolPolicy: ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
-      }
+      },
+      errorResponses: [
+        {
+          httpStatus: 403,
+          responseHttpStatus: 404,
+          responsePagePath: '/404.html'
+        },
+        {
+          httpStatus: 404,
+          responseHttpStatus: 404,
+          responsePagePath: '/404.html'
+        },
+        {
+          httpStatus: 500,
+          responseHttpStatus: 500,
+          responsePagePath: '/500.html'
+        }
+      ]
     });
 
     new BucketDeployment(this, 'BucketDeployment', {
       destinationBucket: bucket,
       distribution: distribution,
       distributionPaths: ['/*'],
-      contentType: 'text/html',
       sources: [Source.asset(path.join(__dirname, '../../dist'))],
     });
 
