@@ -1,0 +1,38 @@
+name: Format code
+
+on: [push, pull_request]
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        project: [web, infra]
+        
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+            node-version: 20
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        working-directory: ${{ matrix.project }}
+        run: pnpm install
+
+      - name: Run code formatting
+        working-directory: ${{ matrix.project }}
+        run: pnpm biome format --write .
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'chore: auto-fix formatting'
+          token: ${{ secrets.GITHUB_TOKEN }}
