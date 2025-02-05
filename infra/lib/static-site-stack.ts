@@ -1,10 +1,11 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { BlockPublicAccess, Bucket, BucketAccessControl } from 'aws-cdk-lib/aws-s3';
-import { Distribution, OriginAccessIdentity, ViewerProtocolPolicy } from 'aws-cdk-lib/aws-cloudfront';
+import { Distribution, ViewerProtocolPolicy } from 'aws-cdk-lib/aws-cloudfront';
 import { S3BucketOrigin } from 'aws-cdk-lib/aws-cloudfront-origins';
 import { BucketDeployment, Source } from 'aws-cdk-lib/aws-s3-deployment';
 import path = require('path');
+import { AnyPrincipal, Effect, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 
 export class StaticSiteStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -18,6 +19,22 @@ export class StaticSiteStack extends cdk.Stack {
       removalPolicy: cdk.RemovalPolicy.DESTROY,
     });
 
+    bucket.addToResourcePolicy(new PolicyStatement({
+      effect: Effect.DENY,
+      actions: ['s3:*'],
+      resources: [bucket.bucketArn, `${bucket.bucketArn}/*`],
+      principals: [new AnyPrincipal()],
+      conditions: {
+        Bool: {
+          'aws:SecureTransport': 'false'
+        }
+      }
+    }));
+
+    bucket.addLifecycleRule({
+      expiration: cdk.Duration.days(30),
+    })
+
     const distribution = new Distribution(this, 'Distribution', {
       defaultRootObject: 'index.html',
       defaultBehavior: {
@@ -27,8 +44,11 @@ export class StaticSiteStack extends cdk.Stack {
     });
 
     new BucketDeployment(this, 'BucketDeployment', {
+      destinationBucket: bucket,
+      distribution: distribution,
+      distributionPaths: ['/*'],
+      contentType: 'text/html',
       sources: [Source.asset(path.join(__dirname, '../../dist'))],
-      destinationBucket: bucket
     });
 
     new cdk.CfnOutput(this, 'CfnOutCloudFrontUrl', {
