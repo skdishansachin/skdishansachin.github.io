@@ -1,0 +1,53 @@
+---
+import '@fontsource-variable/geist';
+import '@fontsource-variable/geist-mono';
+import "../styles/global.css";
+
+interface Props {
+	title: string;
+	description?: string;
+}
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		{
+			Astro.props.description !== undefined && (
+				<meta name="description" content={Astro.props.description} />
+			)
+		}
+		<title>{Astro.props.title}</title>
+		<link rel="preconnect" href="/" crossorigin />
+		<link rel="preload" href="/profile.png" as="image" />
+		<link rel="icon" href="/profile.png" />
+		<link
+			rel="alternate"
+			type="application/rss+xml"
+			title="Dishan Sachin"
+			href={`${Astro.site}rss.xml`}
+		/>
+	</head>
+	<body class="antialiased">
+		<div class="max-w-3xl mx-auto pt-0 md:pt-10 p-10">
+			<main>
+				<slot />
+			</main>
+			<footer class="flex justify-between mt-12">
+				<p class="text-gray-800">
+					Credit goes to <a
+						href="https://github.com/pilcrowonpaper"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="text-gray-800">pilcrow</a>
+				</p>
+				<a
+					href="https://github.com/skdishansachin/site"
+					class="text-gray-800">Source code</a
+				>
+			</footer>
+		</div>
+	</body>
+</html>

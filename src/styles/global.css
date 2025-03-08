@@ -1,0 +1,18 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+html {
+    font-family: 'Geist Variable', sans-serif;
+}
+
+code {
+    font-family: 'Geist Mono Variable', monospace;
+}
+
+ul {
+    @apply list-disc;
+}
+
+a {
+    @apply underline hover:text-blue-600 transition-colors;
+}
