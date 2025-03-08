@@ -1,7 +1,7 @@
 import rss from "@astrojs/rss";
 
-import type { APIContext } from "astro";
 import { getCollection } from "astro:content";
+import type { APIContext } from "astro";
 
 export async function GET(context: APIContext) {
 	const posts = await getCollection("post", ({ data }) => {
@@ -11,10 +11,10 @@ export async function GET(context: APIContext) {
 	return rss({
 		title: "Dishan Sachin",
 		description: "Dishan Sachin's personal website",
-		items: posts.map(post => ({
+		items: posts.map((post) => ({
 			title: post.data.title,
 			description: post.data.description,
 		})),
-		site: ""
+		site: "",
 	});
 }

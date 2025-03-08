@@ -2,7 +2,7 @@
 import Layout from "@/components/Layout.astro";
 
 import { getCollection } from "astro:content";
-import { limit, date } from "@/utils";
+import { date, limit } from "@/utils";
 
 const posts = await getCollection("post", ({ data }) => {
 	return data.hidden !== true;
