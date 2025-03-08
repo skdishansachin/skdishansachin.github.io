@@ -1,7 +1,7 @@
 ---
 title: My firt post
 description: This is my first post
-date: 2023-10-01
+date: "2023-10-01"
 hidden: false
 ---
 
