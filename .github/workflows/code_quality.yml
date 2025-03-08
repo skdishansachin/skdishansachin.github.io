@@ -19,7 +19,7 @@ jobs:
           version: latest
 
       - name: Run Biome
-        run: biome check . --fix
+        run: biome check --write .
 
       - name: Commit and Push Fixes
         uses: stefanzweifel/git-auto-commit-action@v5
