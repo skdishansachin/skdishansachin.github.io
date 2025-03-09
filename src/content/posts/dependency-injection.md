@@ -17,124 +17,60 @@ We will take a look at the benefits of DI later in this article. First, let's lo
 
 ## Example of Code Without Dependency Injection
 
+Think of a senario where an order is placed, `OrderService` needs to interact with `InventoryService`, `ShippingService` and `PaymentService`. In this case, `OrderService` is tightly coupled with these services. Here is an example of how this might look:
+
 ```java
-enum PaymentMethod {
-    STRIPE,
-    PAYPAL,
-    PADDLE,
-}
+class OderService {
+    private InventoryService inventoryService;
+    private ShippingSerive shippingService;
+    private PaymentService paymentService;
 
-class StripePaymentProcessor {
-    void pay(double amount) {
-        // Stripe payment logic
+    public OrderService() {
+        this.inventoryService = new InventoryService();
+        this.shippingService = new ShippingService();
+        this.paymentService = new PaymentService();
     }
-}
 
-class PaypalPaymentProcessor {
-    void pay(double amount) {
-        // PayPal payment logic
-    }
-}
-
-class PaddlePaymentProcessor {
-    void pay(double amount) {
-        // Paddle payment logic
+    void placeOrder(Order order) {
+        inventoryService.checkInventory(order);
+        shippingService.shipOrder(order);
+        paymentService.processPayment(order);
     }
 }
 ```
 
-This code is tightly coupled because the `PaymentService` class is responsible for creating instances of the payment processors. This makes it difficult to change the payment method or to test the `PaymentService` class in isolation.
-
 ```java
+class InventoryService {
+    void checkInventory(Order order) {
+        // Check inventory logic
+    }
+}
+
+class ShippingService {
+    void shipOrder(Order order) {
+        // Ship order logic
+    }
+}
+
 class PaymentService {
-    private final StripePaymentProcessor stripePaymentProcessor = new StripePaymentProcessor();
-    private final PaypalPaymentProcessor paypalPaymentProcessor = new PaypalPaymentProcessor();
-    private final PaddlePaymentProcessor paddlePaymentProcessor = new PaddlePaymentProcessor();
-
-    void processPayment(PaymentMethod paymentMethod, double amount) {
-        switch (paymentMethod) {
-            case STRIPE:
-                stripePaymentProcessor.pay(amount);
-                break;
-            case PAYPAL:
-                paypalPaymentProcessor.pay(amount);
-                break;
-            case PADDLE:
-                paddlePaymentProcessor.pay(amount);
-                break;
-        }
+    void processPayment(Order order) {
+        // Process payment logic
     }
 }
 ```
 
-Here we are using a switch statement to determine which payment processor to use. This is not only hard to maintain but also makes it difficult to test the `PaymentService` class in isolation.
+```java
+class Order {
+    // Order properties
+}
+```
 
 ```java
-class Application {
+class Main {
     public static void main(String[] args) {
-        PaymentService paymentService = new PaymentService();
-        paymentService.processPayment(PaymentMethod.STRIPE, 100.0);
+        Order order = new Order();
+        OrderService orderService = new OrderService();
+        orderService.placeOrder(order);
     }
 }
 ```
-
-So the `Application` class is responsible for creating the `PaymentService` instance and calling the `processPayment` method. This is not a good design because it makes it difficult to change the payment method or to test the `PaymentService` class in isolation.
-
-Now let's see how we can use Dependency Injection to improve this design. We will create an interface for the payment processor and use constructor injection to inject the payment processor into the `PaymentService` class.
-
-```java
-interface PaymentProcessor {
-    void pay(double amount);
-}
-
-class StripePaymentProcessor implements PaymentProcessor {
-    @Override
-    public void pay(double amount) {
-        // Stripe payment logic
-    }
-}
-
-class PaypalPaymentProcessor implements PaymentProcessor {
-    @Override
-    public void pay(double amount) {
-        // PayPal payment logic
-    }
-}
-
-class PaddlePaymentProcessor implements PaymentProcessor {
-    @Override
-    public void pay(double amount) {
-        // Paddle payment logic
-    }
-}
-```
-
-Now we have an interface `PaymentProcessor` that defines the `pay` method. Each payment processor class implements this interface. This allows us to use any payment processor interchangeably.
-
-```java
-class PaymentService {
-    private final PaymentProcessor paymentProcessor;
-
-    public PaymentService(PaymentProcessor paymentProcessor) {
-        this.paymentProcessor = paymentProcessor;
-    }
-
-    void processPayment(double amount) {
-        paymentProcessor.pay(amount);
-    }
-}
-```
-
-Now the `PaymentService` class does not create the payment processor instance itself. Instead, it receives it through the constructor. This makes it easy to change the payment processor or to test the `PaymentService` class in isolation.
-
-```java
-class Application {
-    public static void main(String[] args) {
-        PaymentProcessor paymentProcessor = new StripePaymentProcessor();
-        PaymentService paymentService = new PaymentService(paymentProcessor);
-        paymentService.processPayment(100.0);
-    }
-}
-```
-
-In this example, we are using the `StripePaymentProcessor` class as the payment processor. But we can easily change it to use `PaypalPaymentProcessor` or `PaddlePaymentProcessor` without changing the `PaymentService` class.
