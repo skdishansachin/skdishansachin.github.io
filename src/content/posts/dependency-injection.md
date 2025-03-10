@@ -5,72 +5,186 @@ date: "2024-04-09"
 hidden: false
 ---
 
-# What is Dependency Injection?
+## Overview
 
 Dependency Injection (DI) is a design pattern used in Object-Oriented Programming that allows a class to receive its dependencies from an external source rather than creating them itself.
 
-## Why Use Dependency Injection?
+## What is Inversion of Control?
 
-Dependency Injection is used to achieve **Inversion of Control** (IoC), which is a principle that helps to decouple the components. This decoupling makes the code more flexible, easier to test and maintain. By using DI, we can change the implementation of a dependency without changing the class that uses it.
+Inversion of Control (IoC) is a broader principle that refers to the reversal of the flow of control in a system. In traditional programming, the main program controls the flow of execution and calls functions or methods as needed. In IoC, the control is inverted, meaning that the framework or container takes control and calls the application code when needed.
 
-We will take a look at the benefits of DI later in this article. First, let's look at an example of code that does not use Dependency Injection and then we will refactor it to use DI.
+## What is Dependency Injection?
 
-## Example of Code Without Dependency Injection
+Dependency Injection is a specific implementation of the Inversion of Control principle. It allows a class to receive its dependencies from an external source, typically a container or framework, rather than creating them itself. This promotes loose coupling between classes and makes it easier to manage dependencies.
 
-Think of a senario where an order is placed, `OrderService` needs to interact with `InventoryService`, `ShippingService` and `PaymentService`. In this case, `OrderService` is tightly coupled with these services. Here is an example of how this might look:
+## Example
 
 ```java
-class OderService {
-    private InventoryService inventoryService;
-    private ShippingSerive shippingService;
-    private PaymentService paymentService;
+class OrderService {
 
-    public OrderService() {
-        this.inventoryService = new InventoryService();
-        this.shippingService = new ShippingService();
-        this.paymentService = new PaymentService();
+    private final InventoryService inventoryService;
+    private final PaymentService paymentService;
+
+    OrderService(InventoryService inventoryService, PaymentService paymentService) {
+        this.inventoryService = inventoryService;
+        this.paymentService = paymentService;
     }
 
     void placeOrder(Order order) {
-        inventoryService.checkInventory(order);
-        shippingService.shipOrder(order);
-        paymentService.processPayment(order);
+        if (inventoryService.isAvailable(order.getProductId())) {
+            paymentService.processPayment(order.getAmount());
+            inventoryService.updateInventory(order.getProductId());
+        } else {
+            throw new ProductNotAvailableException("Product not available");
+        }
     }
 }
 ```
 
-```java
-class InventoryService {
-    void checkInventory(Order order) {
-        // Check inventory logic
-    }
-}
+So what happens here? The `OrderService` class does not create instances of `InventoryService` or `PaymentService`. Instead, it receives them as constructor parameters. This allows for greater flexibility and testability, as different implementations of these services can be injected without modifying the `OrderService` class.
 
-class ShippingService {
-    void shipOrder(Order order) {
-        // Ship order logic
-    }
-}
-
-class PaymentService {
-    void processPayment(Order order) {
-        // Process payment logic
-    }
-}
-```
-
-```java
-class Order {
-    // Order properties
-}
-```
+To use the `OrderService`, you would create instances of `InventoryService` and `PaymentService` and pass them to the constructor:
 
 ```java
 class Main {
     public static void main(String[] args) {
-        Order order = new Order();
-        OrderService orderService = new OrderService();
+        InventoryService inventoryService = new InventoryService();
+        PaymentService paymentService = new PaymentService();
+        OrderService orderService = new OrderService(inventoryService, paymentService);
+
+        Order order = new Order(id: "89770");
         orderService.placeOrder(order);
     }
 }
 ```
+
+So what is the big deal here still we are creating the instances of `InventoryService` and `PaymentService` in the `Main` class? The big deal is that we can now easily swap out these dependencies with different implementations, such as mock objects for testing or different service implementations for different environments.
+
+Let me show you an example of how we can use Dependency Injection to swap out the `InventoryService` with a mock implementation for testing:
+
+```java
+class MockInventoryService implements InventoryService {
+    @Override
+    public boolean isAvailable(String productId) {
+        return true; // Always available for testing
+    }
+
+    @Override
+    public void updateInventory(String productId) {
+        // No-op for testing
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        InventoryService mockInventoryService = new MockInventoryService();
+        PaymentService paymentService = new PaymentService();
+        OrderService orderService = new OrderService(mockInventoryService, paymentService);
+
+        Order order = new Order(id: "89770");
+        orderService.placeOrder(order);
+    }
+}
+```
+
+In this example, we created a `MockInventoryService` that always returns true for availability and does nothing when updating the inventory. This allows us to test the `OrderService` without relying on the actual `InventoryService`, making our tests faster and more reliable.
+
+So Let's take a look at an example when we don't use Dependency Injection:
+
+```java
+class OrderService {
+
+    private final InventoryService inventoryService = new InventoryService();
+    private final PaymentService paymentService = new PaymentService();
+
+    void placeOrder(Order order) {
+        if (inventoryService.isAvailable(order.getProductId())) {
+            paymentService.processPayment(order.getPaymentDetails());
+            inventoryService.updateInventory(order.getProductId());
+        } else {
+            throw new ProductNotAvailableException("Product not available");
+        }
+    }
+}
+```
+
+In this example, the `OrderService` class creates its own instances of `InventoryService` and `PaymentService`. This tightly couples the `OrderService` to these specific implementations, making it difficult to change or test them independently. If we wanted to use a different implementation of `InventoryService`, we would have to modify the `OrderService` class itself.
+
+So if you were to mock the `InventoryService` in this case, you would have to modify the `OrderService` class to use the mock implementation, which defeats the purpose of Dependency Injection. So to create a mock implementation, you would have to create a new class that extends `OrderService` and overrides the `placeOrder` method to use the mock implementation. This is not ideal and can lead to code duplication and maintenance issues.
+
+it look something like this
+
+```java
+class MockOrderService extends OrderService {
+
+    private final InventoryService mockInventoryService;
+
+    MockOrderService(InventoryService mockInventoryService) {
+        this.mockInventoryService = mockInventoryService;
+    }
+
+    @Override
+    void placeOrder(Order order) {
+        if (mockInventoryService.isAvailable(order.getProductId())) {
+            paymentService.processPayment(order.getPaymentDetails());
+            mockInventoryService.updateInventory(order.getProductId());
+        } else {
+            throw new ProductNotAvailableException("Product not available");
+        }
+    }
+}
+```
+
+In this example, we created a `MockOrderService` that extends the `OrderService` class and overrides the `placeOrder` method to use the mock implementation of `InventoryService`. This is not ideal as it leads to code duplication and makes it harder to maintain the code.
+
+### Types of Dependency Injection
+
+There are several types of Dependency Injection, including:
+
+- **Constructor Injection**: Dependencies are provided through the class constructor
+- **Setter Injection**: Dependencies are provided through setter methods
+
+#### Constructor Injection
+
+Constructor Injection is the most common form of Dependency Injection. It involves passing dependencies as parameters to the class constructor
+
+```java
+class OrderService {
+
+    private final InventoryService inventoryService;
+    private final PaymentService paymentService;
+
+    OrderService(InventoryService inventoryService, PaymentService paymentService) {
+        this.inventoryService = inventoryService;
+        this.paymentService = paymentService;
+    }
+
+    // ...
+}
+```
+
+#### Setter Injection
+
+Setter Injection involves providing dependencies through setter methods after the object is constructed. This allows for more flexibility, but can lead to partially constructed objects if not used carefully.
+
+```java
+class OrderService {
+
+    private InventoryService inventoryService;
+    private PaymentService paymentService;
+
+    void setInventoryService(InventoryService inventoryService) {
+        this.inventoryService = inventoryService;
+    }
+
+    void setPaymentService(PaymentService paymentService) {
+        this.paymentService = paymentService;
+    }
+
+    // ...
+}
+```
+
+## Conclusion
+
+In this article, we explored the concept of Dependency Injection and its benefits. We discussed how it promotes loose coupling between classes, making it easier to manage dependencies and test code. We also looked at different types of Dependency Injection, including Constructor Injection and Setter Injection.
