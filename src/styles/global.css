@@ -15,7 +15,6 @@ code:not(pre code) {
 }
 
 @media (prefers-color-scheme: dark) {
-
 	.astro-code,
 	.astro-code span {
 		color: var(--shiki-dark) !important;
