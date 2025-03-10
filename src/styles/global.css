@@ -7,9 +7,9 @@
 }
 
 a {
-	@apply underline hover:text-blue-600 transition-colors;
+	@apply underline hover:text-blue-600 transition-colors dark:text-gray-400 hover:dark:text-gray-300 dark:underline-offset-2 dark:decoration-gray-800;
 }
 
 code:not(pre code) {
-	@apply bg-gray-100 text-gray-900 rounded-md px-1 py-0.5;
+	@apply bg-gray-100 text-gray-900 dark:text-zinc-300 dark:bg-gray-900 rounded-md px-1 py-0.5;
 }
