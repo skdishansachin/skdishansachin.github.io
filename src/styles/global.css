@@ -16,3 +16,7 @@ ul {
 a {
 	@apply underline hover:text-blue-600 transition-colors;
 }
+
+code:not(pre code) {
+	@apply bg-gray-100 text-gray-900 rounded-md px-1 py-0.5;
+}
