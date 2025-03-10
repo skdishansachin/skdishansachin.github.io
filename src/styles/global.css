@@ -1,16 +1,9 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-html {
-	font-family: "Geist Variable", sans-serif;
-}
-
-code {
-	font-family: "Geist Mono Variable", monospace;
-}
-
-ul {
-	@apply list-disc;
+@theme {
+	--font-sans: "Geist Variable", sans-serif;
+	--font-mono: "Geist Mono Variable", monospace;
 }
 
 a {
