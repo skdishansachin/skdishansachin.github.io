@@ -23,3 +23,6 @@ public/.siena
 pnpm-lock.yaml
 
 .astro
+
+# Cloudflare Pages
+.wrangler
