@@ -1,7 +1,9 @@
 import { defineConfig } from "astro/config";
-import markdown from "./integrations/markdown";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-	integrations: [tailwind(), markdown()],
+	site: "https://example.com",
+	vite: {
+		plugins: [tailwindcss()],
+	},
 });
