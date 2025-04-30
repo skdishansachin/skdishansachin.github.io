@@ -1,54 +1,49 @@
 ---
 import Layout from "@/components/Layout.astro";
-
+import { formatDate } from "@/utils/format";
 import { getCollection } from "astro:content";
-import { date, limit } from "@/utils";
 
-const posts = await getCollection("post", ({ data }) => {
-	return data.hidden !== true;
-});
+const posts = await getCollection('posts');
 ---
 
-<Layout title="Dishan Sachin" description="Dishan Sachin's personal website">
-	<h1 class="text-xl tracking-tight font-medium pt-12">Dishan Sachin</h1>
-	<div class="mt-4">
-		I'm a backend developer and a student at the Java Institute of Advanced
-		Technology. I spend most of my time writing backend code with Java and
-		Kotlin. I also contribute to open-source projects. In my spare time, I
-		write articles that help others learn about programming and technology.
+<Layout title="pilcrow" description="pilcrow's personal website">
+	<div class="mb-8 mt-8 flex place-items-center gap-x-2 sm:mb-12 sm:gap-x-4">
+		<img src="/profile.jpg" alt="profile picture" class="h-12 w-12 rounded-full bg-zinc-100 sm:h-16 sm:w-16" />
+		<h1 class="text-4.5xl font-bold sm:text-5xl">pilcrow</h1>
 	</div>
+	<p>Hi! I'm a university student in Japan interested in application security.</p>
 	<p class="mt-4">
-		You can find me on <a href="https://github.com/skdishansachin">GitHub</a
-		>, and <a href="https://bsky.app/profile/skdishansachin.bsky.social"
-			>BlueSky</a
-		>. Feel free to reach out to me on <a
-			href="mailto:dishansacin99@gmail.com">Email</a
+		I maintain various open source libraries in the JavaScript ecosystem, mostly around authentication and cryptography.
+		I really enjoy building stuff from scratch and re-inventing the wheel, learning all the little details along the
+		way. I also really enjoy designing library APIs
+	</p>
+	<p class="mt-4">Aside from programming, my hobbies include cooking, drawing, and playing games.</p>
+	<p class="mt-4">
+		You can find me on <a href="https://twitter.com/pilcrowonpaper" class="text-main underline hover:text-black"
+			>Twitter</a
+		>, <a href="https://github.com/pilcrowonpaper" class="text-main underline hover:text-black">GitHub</a>, and <a
+			href="https://bsky.app/profile/pilcrowonpaper.com"
+			class="text-main underline hover:text-black">BlueSky</a
+		>. You can also email me at <a href="mailto:pilcrowonpaper@gmail.com" class="text-main underline hover:text-black"
+			>pilcrowonpaper@gmail.com</a
 		>.
 	</p>
-	{
-		posts.length > 0 && (
-			<section class="mt-8 mb-3">
-				<h1 class="text-xl tracking-tight font-medium">Blog</h1>
-				<div class="mt-4 flex flex-col space-y-4">
-					{posts.map((post) => {
-						return (
-							<article class="flex justify-between">
-								<h3>
-									<a
-										href={`/blog/${post.id}`}
-										class="dark:text-gray-400"
-									>
-										{limit(post.data.title)}
-									</a>
-								</h3>
-								<p class="text-sm dark:text-gray-400">
-									{date(post.data.date)}
-								</p>
-							</article>
-						);
-					})}
-				</div>
-			</section>
-		)
-	}
+	
+	<section class="mt-12">
+		<h2 class="text-2.5xl font-semibold sm:font-bold">Blog</h2>
+		<div class="mt-4 flex flex-col gap-y-4">
+			{
+				posts.map((post) => {
+					return (
+						<article>
+							<h3 class="leading-snug">
+								<a href={`/blog/${post.id}`}>{post.data.title}</a>
+							</h3>
+							<p class="text-sm text-zinc-450">{post.data.date}</p>
+						</article>
+					);
+				})
+			}
+		</div>
+	</section>
 </Layout>
