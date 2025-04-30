@@ -1,3 +1,40 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-xs: 475px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  --color-main: #2d7fe3;
+
+  --color-zinc-80: #f7f7f7;
+  --color-zinc-450: #85858f;
+
+  --text-1_5xl: 1.375rem;
+  --text-1_5xl--line-height: 1.75rem;
+  --text-2_5xl: 1.75rem;
+  --text-2_5xl--line-height: 2rem;
+  --text-4_5xl: 2.5rem;
+  --text-code-sm: 0.825rem;
+  --text-code-base: 0.925rem;
+  --text-code-lg: 1.12rem;
+  --text-code-xl: 1.2rem;
+  --text-code-2xl: 1.45rem;
+  --text-code-3xl: 1.825rem;
+  --text-code-4xl: 2.15rem;
+  --text-code-5xl: 2.9rem;
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
