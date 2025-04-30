@@ -1,30 +1,16 @@
 {
-	"name": "pilcrow",
 	"type": "module",
-	"version": "0.0.1",
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
-		"astro": "astro",
-		"format": "pnpm exec prettier -w . --plugin=prettier-plugin-astro --plugin=prettier-plugin-tailwindcss"
+		"astro": "astro"
 	},
 	"dependencies": {
 		"@astrojs/rss": "4.0.11",
 		"@astrojs/tailwind": "^6.0.2",
 		"astro": "^5.7.9",
-		"rehype": "^13.0.2",
-		"tailwindcss": "^4.1.4"
-	},
-	"devDependencies": {
-		"@types/hast": "^3.0.4",
-		"@types/node": "^18.19.87",
-		"prettier": "^3.5.3",
-		"prettier-plugin-astro": "^0.12.3",
-		"prettier-plugin-tailwindcss": "^0.6.11",
-		"sharp": "^0.32.6",
-		"ts-node": "^10.9.2",
-		"typescript": "^5.8.3"
+		"tailwindcss": "^3.4.17"
 	}
 }
