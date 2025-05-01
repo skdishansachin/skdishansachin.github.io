@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"posts">;
 
 const post = Astro.props;
-const { Content } = await render(post);
+const { Content, remarkPluginFrontmatter } = await render(post);
 const { title, date } = post.data;
 ---
 
@@ -29,10 +29,12 @@ const { title, date } = post.data;
 	>
 		{title}
 	</h1>
-	<p class="mt-4 text-lg text-zinc-450">
-		{date}
+	
+	<p class="mt-4 text-lg text-zinc-450 flex gap-4">
+		<span>{remarkPluginFrontmatter.minutesRead}</span>
+		<span>{date}</span>
 	</p>
-	<div class="mt-12 max-w-none prose">
+	<div class="mt-10 max-w-none prose">
 		<Content />
 	</div>
 </Layout>
