@@ -1,18 +1,16 @@
-import { defineConfig } from "astro/config";
+import { defineConfig, passthroughImageService } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
-
-import cloudflare from "@astrojs/cloudflare";
 import { remarkReadingTime } from "./integrations/reading-time.mjs";
 
 export default defineConfig({
-  site: "https://example.com",
+  site: "https://site-854.pages.dev",
   markdown: {
     remarkPlugins: [remarkReadingTime]
   },
   vite: {
-      plugins: [tailwindcss()],
-	},
-  adapter: cloudflare({
-    imageService: 'cloudflare',
-  }),
+    plugins: [tailwindcss()],
+  },
+  image: {
+    service: passthroughImageService()
+  }
 });
