@@ -1,6 +1,6 @@
 ---
-import Layout from "@/components/Layout.astro";
 import { getCollection } from "astro:content";
+import Layout from "@/components/Layout.astro";
 
 const posts = await getCollection("posts", ({ data }) => {
 	return !data.hidden;
@@ -9,7 +9,8 @@ const posts = await getCollection("posts", ({ data }) => {
 
 <Layout title="Dishan Sacin" description="Dishan Sachin's personal website">
 	<img
-		src="/profile.jpg"
+		src="/profile.webp"
+		loading="lazy"
 		alt="profile"
 		class="mt-8 size-12 rounded-full bg-zinc-100 sm:size-16"
 	/>
