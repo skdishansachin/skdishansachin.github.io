@@ -8,13 +8,7 @@ const posts = await getCollection("posts", ({ data }) => {
 ---
 
 <Layout title="Dishan Sacin" description="Dishan Sachin's personal website">
-	<img
-		src="/profile.webp"
-		loading="lazy"
-		alt="profile"
-		class="mt-8 size-12 rounded-full bg-zinc-100 sm:size-16"
-	/>
-	<h1 class="my-8 font-bold text-4xl">skdishansachin</h1>
+	<h1 class="my-8 font-bold text-2xl">skdishansachin</h1>
 	<p>
 		Hi! I'm Dishan Sachin, an undergraduate software engineer from Sri Lanka.
 	</p>
@@ -34,7 +28,7 @@ const posts = await getCollection("posts", ({ data }) => {
 	</p>
 
 	<section class="mt-12">
-		<h2 class="text-3xl font-semibold sm:font-bold">Blog</h2>
+		<h2 class="text-2xl font-semibold sm:font-bold">Blog</h2>
 		<div class="mt-4 flex flex-col gap-y-4">
 			{
 				posts.map((post) => {
