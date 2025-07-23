@@ -20,7 +20,7 @@ const { title, description, pubDate, tags } = Astro.props;
       <Nav />
     </Header>
     <main>
-      <h1 class="title">{title}</h1>
+      <h1 class="blog-title">{title}</h1>
       <FormattedDate date={pubDate} />
       <slot />
       {

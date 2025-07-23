@@ -74,10 +74,6 @@ button {
   cursor: pointer;
 }
 
-main {
-  /* line-height: 2; */
-}
-
 table {
   width: 100%;
 }
@@ -99,7 +95,7 @@ code {
   font-family: 'Geist Mono Variable', monospace;
 }
 
-*:not(pre) > code {
+*:not(pre)>code {
   font-family: 'Geist Mono Variable', monospace;
   padding: 2px;
   background-color: var(--code-background-color);
@@ -142,7 +138,6 @@ footer {
   overflow-x: auto;
 }
 
-/* blog post list */
 ul.blog-posts {
   list-style-type: none;
   padding: unset;
@@ -160,7 +155,6 @@ ul.blog-posts li a:visited {
   color: var(--visited-color);
 }
 
-/* tags */
 .tags {
   font-size: 0.83rem;
 }
@@ -177,7 +171,6 @@ ul.blog-posts li a:visited {
   font-size: 0.83rem;
 }
 
-/* markdown rendering */
 h2#footnote-label {
   display: none;
 }
@@ -186,7 +179,10 @@ h2#footnote-label {
   font-size: 0.9rem;
 }
 
-/* search */
 form {
   line-height: 1;
+}
+
+.blog-title {
+  font-size: 1.5rem;
 }
