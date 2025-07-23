@@ -20,41 +20,19 @@ const posts = (await getCollection("blog"))
     <Header>
       <Nav />
     </Header>
-    <main>
-      <p>
-        <b>Who am I?</b> Doesn’t matter right now — maybe later.
-      </p>
-      <p>
-        What matters is this: if you're into low-level stuff like C, assembly,
-        reverse engineering, breaking binaries, or just figuring out how things
-        work under the hood... you might enjoy this blog.
-      </p>
-      <p>
-        I'm not an expert. I'm just learning — and sharing what I learn as I go.
-        That’s it.
-      </p>
-      <p>
-        That’s all. No social links, no contact form. Just the blog. If you’re
-        curious, read on.
-      </p>
-    </main>
-
-    <div>
-      <h2>You might like these posts:</h2>
-      <ul class="blog-posts">
-        {
-          posts.map((post: any) => (
-            <li data-title={post.data.title.toLowerCase()}>
-              <span>
-                <i>
-                  <FormattedDate date={post.data.pubDate} />
-                </i>
-              </span>
-              <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
+    <ul class="blog-posts">
+      {
+        posts.map((post: any) => (
+          <li data-title={post.data.title.toLowerCase()}>
+            <span>
+              <i>
+                <FormattedDate date={post.data.pubDate} />
+              </i>
+            </span>
+            <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+          </li>
+        ))
+      }
+    </ul>
   </body>
 </html>
