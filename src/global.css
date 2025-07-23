@@ -1,7 +1,0 @@
-@import 'tailwindcss';
-@plugin '@tailwindcss/typography';
-
-@theme {
-    --font-sans: 'Geist Variable', sans-serif;
-    --font-mono: 'Geist Mono Variable', monospace;
-}
