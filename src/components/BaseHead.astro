@@ -2,7 +2,6 @@
 import '@fontsource-variable/geist';
 import '@fontsource-variable/geist-mono';
 import { SITE_TITLE } from "../consts";
-import "../styles/global.css";
 
 interface Props {
   title: string;
@@ -43,13 +42,4 @@ const { title, description, image = "/opengraph.jpg" } = Astro.props;
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-<!-- RSS Feed -->
-<link
-  rel="alternate"
-  type="application/rss+xml"
-  title={SITE_TITLE}
-  href={`${Astro.site}rss.xml`}
-/>
-
-<!-- Sitemap -->
-<link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="stylesheet" type="text/css" href="/skdishansachin.github.io/styles/global.css" />
