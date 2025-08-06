@@ -1,10 +1,9 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import FormattedDate from "../components/FormattedDate.astro";
-import Nav from "../components/Nav.astro";
-import { SITE_URL } from "../consts";
+import BaseHead from "@/components/BaseHead.astro";
+import Header from "@/components/Header.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
+import Nav from "@/components/Nav.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -27,9 +26,9 @@ const { title, description, pubDate, tags } = Astro.props;
         tags && (
           <div>
             {tags.sort().map((tag: string) => (
-              <a class="tag" href={`/tags/${tag}/`}>
+              <p class="tag">
                 #{tag}
-              </a>
+              </p>
             ))}
           </div>
         )
