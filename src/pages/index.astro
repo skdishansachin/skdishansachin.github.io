@@ -6,9 +6,9 @@ import Nav from "../components/Nav.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import { getCollection } from "astro:content";
 
-const posts = (await getCollection("blog"))
-  .sort((b: any, a: any) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
-  .filter((post: any) => !post.data.draft);
+const posts = await getCollection("blog", ({ data }) => {
+  return import.meta.env.PROD ? data.draft !== true : true;
+});
 ---
 
 <!doctype html>
