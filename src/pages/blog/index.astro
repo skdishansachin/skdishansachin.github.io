@@ -1,22 +1,14 @@
 ---
-import BaseHead from "../../components/BaseHead.astro";
-import Header from "../../components/Header.astro";
-import { SITE_DESCRIPTION } from "../../consts";
+import BaseHead from "@/components/BaseHead.astro";
+import Header from "@/components/Header.astro";
+import { SITE_DESCRIPTION } from "@/consts";
 import { getCollection } from "astro:content";
-import FormattedDate from "../../components/FormattedDate.astro";
-import Nav from "../../components/Nav.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
+import Nav from "@/components/Nav.astro";
 
-const posts = (await getCollection("blog"))
-  .sort((b: any, a: any) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
-  .filter((post: any) => !post.data.draft);
-
-const uniqueTags = [
-  ...new Set(
-    posts
-      .flatMap((post: any) => post.data.tags)
-      .filter((tag: any) => tag !== undefined),
-  ),
-].sort();
+const posts = await getCollection("blog", ({ data }) => {
+  return import.meta.env.PROD ? data.draft !== true : true;
+});
 ---
 
 <!doctype html>
@@ -44,15 +36,6 @@ const uniqueTags = [
           ))
         }
       </ul>
-      <div class="tags">
-        {
-          uniqueTags.map((tag: any) => (
-            <a class="tag" href={`/tags/${tag}/`}>
-              #{tag}
-            </a>
-          ))
-        }
-      </div>
     </main>
     <script is:inline>
       const blogPosts = document.querySelectorAll(".blog-posts li");
