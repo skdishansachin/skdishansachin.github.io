@@ -22,13 +22,9 @@ const posts = await getCollection("blog", ({ data }) => {
     </Header>
     <ul class="blog-posts">
       {
-        posts.map((post: any) => (
+        posts.map((post) => (
           <li data-title={post.data.title.toLowerCase()}>
-            <span>
-              <i>
-                <FormattedDate date={post.data.pubDate} />
-              </i>
-            </span>
+            <FormattedDate date={post.data.pubDate} />
             <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
           </li>
         ))
