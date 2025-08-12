@@ -1,0 +1,82 @@
+---
+import BaseHead from "@/components/BaseHead.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
+import Header from "@/components/Header.astro";
+import Nav from "@/components/Nav.astro";
+import { SITE_DESCRIPTION } from "@/consts";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("blog", ({ data }) => {
+        return import.meta.env.PROD ? data.draft !== true : true;
+    });
+
+    // Collect unique tags
+    const tagSet = new Set<string>();
+    for (const post of posts) {
+        (post.data.tags || []).forEach((tag) => tagSet.add(tag));
+    }
+
+    return Array.from(tagSet).map((tag) => ({
+        params: { tag: tag },
+        props: { tag },
+    }));
+}
+
+const { tag } = Astro.props;
+const posts = await getCollection("blog");
+
+const filteredPosts = posts.filter((post) =>
+    post.data.tags?.some((t) => t === tag),
+);
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <BaseHead title={tag} description={SITE_DESCRIPTION} />
+    </head>
+    <body>
+        <Header>
+            <Nav />
+        </Header>
+        <h1>Posts tagged with "{tag}"</h1>
+        {
+            filteredPosts.length === 0 ? (
+                <p>No posts found for this tag.</p>
+            ) : (
+                <ul>
+                    {filteredPosts.map((post) => (
+                        <li data-title={post.data.title.toLowerCase()}>
+                            <FormattedDate date={post.data.pubDate} />
+                            <a href={`/blog/${post.slug}/`}>
+                                {post.data.title}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            )
+        }
+    </body>
+</html>
+
+<style>
+    h1 {
+        font-size: 1.2rem;
+        margin-bottom: 0;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    ul li {
+        display: flex;
+        gap: 1em;
+    }
+
+    ul li a:visited {
+        color: var(--visited-color);
+    }
+</style>

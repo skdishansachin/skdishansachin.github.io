@@ -1,0 +1,61 @@
+---
+import BaseHead from "@/components/BaseHead.astro";
+import Header from "@/components/Header.astro";
+import { SITE_DESCRIPTION } from "@/consts";
+import Nav from "@/components/Nav.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("blog", ({ data }) => {
+  return import.meta.env.PROD ? data.draft !== true : true;
+});
+
+const tagMap = new Map();
+
+for (const post of posts) {
+  const tags = post.data.tags || [];
+  for (const tag of tags) {
+    if (!tagMap.has(tag)) {
+      tagMap.set(tag, []);
+    }
+    tagMap.get(tag).push(post);
+  }
+}
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title="Tags" description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header>
+      <Nav />
+    </Header>
+    <ul>
+      {[...tagMap.entries()].map(([tag, posts]) => (
+        <li>
+          <a href={`/tags/${tag}`}>
+            {tag} ({posts.length})
+          </a>
+        </li>
+      ))}
+    </ul>
+  </body>
+</html>
+
+<style>
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  ul li {
+    display: flex;
+    gap: 1em;
+  }
+
+  ul li a:visited {
+    color: var(--visited-color);
+  }
+</style>
