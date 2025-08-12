@@ -5,21 +5,25 @@ import { SITE_DESCRIPTION } from "@/consts";
 
 <html lang="en">
   <head>
-    <BaseHead title="Error" description={SITE_DESCRIPTION} />
+    <BaseHead title="Page not found!" description={SITE_DESCRIPTION} />
   </head>
   <body>
-    <main>
-      <div
-        style="text-align: center; display: flex; flex-flow: column; justify-content: center; height: calc(100vh - 70px);"
-      >
-        <h1>404</h1>
-        <h2>ʕノ•ᴥ•ʔノ ︵ ┻━┻</h2>
-        <p>
-          It looks like this page doesn't exist.
-          <br />
-          Let's get you <a href="/">back home</a>.
-        </p>
-      </div>
-    </main>
+    <h1>404</h1>
+    <h2>\_(ツ)_/</h2>
+    <p>
+      It looks like this page doesn't exist.
+      <br />
+      Let's get you <a href="/">back home</a>.
+    </p>
   </body>
 </html>
+
+<style>
+  body {
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    height: calc(100vh - 70px);
+  }
+</style>
