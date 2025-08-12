@@ -19,16 +19,14 @@ const { title, description, pubDate, tags } = Astro.props;
       <Nav />
     </Header>
     <main>
-      <h1 class="blog-title">{title}</h1>
+      <h1>{title}</h1>
       <FormattedDate date={pubDate} />
       <slot />
       {
         tags && (
           <div>
             {tags.sort().map((tag: string) => (
-              <p class="tag">
-                #{tag}
-              </p>
+              <a href={`/tags/${tag}`}>#{tag}</a>
             ))}
           </div>
         )
@@ -36,3 +34,9 @@ const { title, description, pubDate, tags } = Astro.props;
     </main>
   </body>
 </html>
+
+<style>
+  h1 {
+    font-size: 1.5rem;
+  }
+</style>
