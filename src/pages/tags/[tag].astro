@@ -1,71 +1,82 @@
 ---
+import BaseHead from "@/components/BaseHead.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
+import Header from "@/components/Header.astro";
+import Nav from "@/components/Nav.astro";
+import { SITE_DESCRIPTION } from "@/consts";
 import { getCollection } from "astro:content";
-import BaseHead from "../../components/BaseHead.astro";
-import FormattedDate from "../../components/FormattedDate.astro";
-import Header from "../../components/Header.astro";
-import { SITE_DESCRIPTION } from "../../consts";
-import Nav from "../../components/Nav.astro";
 
 export async function getStaticPaths() {
-  const allPosts = (await getCollection("blog")).sort(
-    (b: { data: { pubDate: number } }, a: { data: { pubDate: number } }) =>
-      a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
-  );
+    const posts = await getCollection("blog", ({ data }) => {
+        return import.meta.env.PROD ? data.draft !== true : true;
+    });
 
-  const uniqueTags = [
-    ...new Set(
-      allPosts
-        .flatMap((post: { data: { tags: string } }) => post.data.tags)
-        .filter((tag: string) => tag !== undefined)
-    ),
-  ];
+    // Collect unique tags
+    const tagSet = new Set<string>();
+    for (const post of posts) {
+        (post.data.tags || []).forEach((tag) => tagSet.add(tag));
+    }
 
-  return uniqueTags.map((tag) => {
-    const filteredPosts = allPosts.filter(
-      (post: { data: { tags: unknown[] } }) =>
-        post.data.tags && post.data.tags.includes(tag)
-    );
-    return {
-      params: { tag },
-      props: { posts: filteredPosts },
-    };
-  });
+    return Array.from(tagSet).map((tag) => ({
+        params: { tag: tag },
+        props: { tag },
+    }));
 }
 
-const { tag } = Astro.params as { tag: string };
-const { posts } = Astro.props;
+const { tag } = Astro.props;
+const posts = await getCollection("blog");
+
+const filteredPosts = posts.filter((post) =>
+    post.data.tags?.some((t) => t === tag),
+);
 ---
 
+<!doctype html>
 <html lang="en">
-  <head>
-    <BaseHead title={tag} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <Header>
-      <Nav />
-    </Header>
-    <main>
-      <h3 class="filter-title">Filtering for "{tag}"</h3>
-      <a href="/blog" class="remove-filter">Remove filter</a>
-      <ul class="blog-posts">
+    <head>
+        <BaseHead title={tag} description={SITE_DESCRIPTION} />
+    </head>
+    <body>
+        <Header>
+            <Nav />
+        </Header>
+        <h1>Posts tagged with "{tag}"</h1>
         {
-          posts.map(
-            (post: {
-              data: { pubDate: unknown; title: unknown };
-              slug: any;
-            }) => (
-              <li>
-                <span>
-                  <i>
-                    <FormattedDate date={post.data.pubDate} />
-                  </i>
-                </span>
-                <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
-              </li>
+            filteredPosts.length === 0 ? (
+                <p>No posts found for this tag.</p>
+            ) : (
+                <ul>
+                    {filteredPosts.map((post) => (
+                        <li data-title={post.data.title.toLowerCase()}>
+                            <FormattedDate date={post.data.pubDate} />
+                            <a href={`/blog/${post.slug}/`}>
+                                {post.data.title}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
             )
-          )
         }
-      </ul>
-    </main>
-  </body>
+    </body>
 </html>
+
+<style>
+    h1 {
+        font-size: 1.2rem;
+        margin-bottom: 0;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    ul li {
+        display: flex;
+        gap: 1em;
+    }
+
+    ul li a:visited {
+        color: var(--visited-color);
+    }
+</style>

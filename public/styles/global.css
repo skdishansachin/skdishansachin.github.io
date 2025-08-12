@@ -115,14 +115,6 @@ footer {
   text-align: center;
 }
 
-.title:hover {
-  text-decoration: none;
-}
-
-.title h1 {
-  font-size: 1.5em;
-}
-
 .inline {
   width: auto !important;
 }
@@ -138,23 +130,6 @@ footer {
   overflow-x: auto;
 }
 
-ul.blog-posts {
-  list-style-type: none;
-  padding: unset;
-}
-
-ul.blog-posts li {
-  display: flex;
-}
-
-ul.blog-posts li span {
-  flex: 0 0 130px;
-}
-
-ul.blog-posts li a:visited {
-  color: var(--visited-color);
-}
-
 .tags {
   font-size: 0.83rem;
 }
@@ -163,26 +138,10 @@ ul.blog-posts li a:visited {
   margin-right: 0.25rem;
 }
 
-.filter-title {
-  margin-bottom: 0;
-}
-
-.remove-filter {
-  font-size: 0.83rem;
-}
-
 h2#footnote-label {
   display: none;
 }
 
 .footnotes li {
   font-size: 0.9rem;
-}
-
-form {
-  line-height: 1;
-}
-
-.blog-title {
-  font-size: 1.5rem;
 }

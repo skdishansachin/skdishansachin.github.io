@@ -1,0 +1,61 @@
+---
+import BaseHead from "@/components/BaseHead.astro";
+import Header from "@/components/Header.astro";
+import { SITE_DESCRIPTION } from "@/consts";
+import Nav from "@/components/Nav.astro";
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <BaseHead title="About" description={SITE_DESCRIPTION} />
+    </head>
+    <body>
+        <Header>
+            <Nav />
+        </Header>
+        <div>
+            <p>
+                Hi, I'm <strong>Dishan Sachin (skdishansachin)</strong>, a
+                undergraduate software engineer from Sri Lanka. I’ve been
+                programming since 2016, starting with PHP before moving into
+                Java and Go. I spend most of my time working on backend
+                development and system design.
+            </p>
+            You can find me on:
+            <ul>
+                <li>
+                    <a
+                        href="https://github.com/skdishansachin"
+                        target="_blank"
+                        rel="noopener noreferrer">GitHub</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="https://www.linkedin.com/in/skdishansachin/"
+                        target="_blank"
+                        rel="noopener noreferrer">LinkedIn</a
+                    >
+                </li>
+                <p></p>
+            </ul>
+        </div>
+    </body>
+</html>
+
+<style>
+    ul {
+        list-style-type: circle;
+        padding: 0;
+    }
+
+    ul li {
+        display: flex;
+        gap: 1em;
+    }
+
+    ul li a:visited {
+        color: var(--visited-color);
+    }
+</style>

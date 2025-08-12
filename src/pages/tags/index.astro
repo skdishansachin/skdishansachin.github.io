@@ -9,26 +9,37 @@ import { getCollection } from "astro:content";
 const posts = await getCollection("blog", ({ data }) => {
   return import.meta.env.PROD ? data.draft !== true : true;
 });
+
+const tagMap = new Map();
+
+for (const post of posts) {
+  const tags = post.data.tags || [];
+  for (const tag of tags) {
+    if (!tagMap.has(tag)) {
+      tagMap.set(tag, []);
+    }
+    tagMap.get(tag).push(post);
+  }
+}
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title="Home" description={SITE_DESCRIPTION} />
+    <BaseHead title="Tags" description={SITE_DESCRIPTION} />
   </head>
   <body>
     <Header>
       <Nav />
     </Header>
-    <ul class="blog-posts">
-      {
-        posts.map((post) => (
-          <li data-title={post.data.title.toLowerCase()}>
-            <FormattedDate date={post.data.pubDate} />
-            <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
-          </li>
-        ))
-      }
+    <ul>
+      {[...tagMap.entries()].map(([tag, posts]) => (
+        <li>
+          <a href={`/tags/${tag}`}>
+            {tag} ({posts.length})
+          </a>
+        </li>
+      ))}
     </ul>
   </body>
 </html>
