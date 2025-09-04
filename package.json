@@ -7,8 +7,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "format": "biome format --write",
-    "lint": "biome lint --write",
-    "test": "vitest"
+    "lint": "biome lint --write"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
