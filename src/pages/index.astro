@@ -1,10 +1,10 @@
 ---
-import BaseHead from '@/components/BaseHead.astro';
-import Header from '@/components/Header.astro';
-import { SITE_DESCRIPTION } from '@/consts';
-import Nav from '@/components/Nav.astro';
-import FormattedDate from '@/components/FormattedDate.astro';
 import { getCollection } from 'astro:content';
+import BaseHead from '@/components/BaseHead.astro';
+import FormattedDate from '@/components/FormattedDate.astro';
+import Header from '@/components/Header.astro';
+import Nav from '@/components/Nav.astro';
+import { SITE_DESCRIPTION } from '@/consts';
 
 const posts = await getCollection('blog', ({ data }) => {
   return import.meta.env.PROD ? data.draft !== true : true;
@@ -17,7 +17,8 @@ const posts = await getCollection('blog', ({ data }) => {
     <BaseHead title="Home" description={SITE_DESCRIPTION} />
   </head>
   <body>
-    <Header>
+    <main>
+      <Header>
       <Nav />
     </Header>
     <ul class="blog-posts">
@@ -30,10 +31,15 @@ const posts = await getCollection('blog', ({ data }) => {
         ))
       }
     </ul>
+    </main>
   </body>
 </html>
 
 <style>
+  main {
+    padding-bottom: 4rem;
+  }
+
   ul {
     list-style-type: none;
     padding: 0;
