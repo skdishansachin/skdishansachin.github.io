@@ -1,11 +1,11 @@
 ---
-import type { CollectionEntry } from "astro:content";
-import BaseHead from "@/components/BaseHead.astro";
-import Header from "@/components/Header.astro";
-import FormattedDate from "@/components/FormattedDate.astro";
-import Nav from "@/components/Nav.astro";
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '@/components/BaseHead.astro';
+import Header from '@/components/Header.astro';
+import FormattedDate from '@/components/FormattedDate.astro';
+import Nav from '@/components/Nav.astro';
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description, pubDate, tags } = Astro.props;
 ---

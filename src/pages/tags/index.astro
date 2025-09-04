@@ -1,12 +1,12 @@
 ---
-import BaseHead from "@/components/BaseHead.astro";
-import Header from "@/components/Header.astro";
-import { SITE_DESCRIPTION } from "@/consts";
-import Nav from "@/components/Nav.astro";
-import FormattedDate from "@/components/FormattedDate.astro";
-import { getCollection } from "astro:content";
+import BaseHead from '@/components/BaseHead.astro';
+import Header from '@/components/Header.astro';
+import { SITE_DESCRIPTION } from '@/consts';
+import Nav from '@/components/Nav.astro';
+import FormattedDate from '@/components/FormattedDate.astro';
+import { getCollection } from 'astro:content';
 
-const posts = await getCollection("blog", ({ data }) => {
+const posts = await getCollection('blog', ({ data }) => {
   return import.meta.env.PROD ? data.draft !== true : true;
 });
 

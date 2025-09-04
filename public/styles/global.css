@@ -92,11 +92,11 @@ pre {
 }
 
 code {
-  font-family: 'Geist Mono Variable', monospace;
+  font-family: "Geist Mono Variable", monospace;
 }
 
-*:not(pre)>code {
-  font-family: 'Geist Mono Variable', monospace;
+*:not(pre) > code {
+  font-family: "Geist Mono Variable", monospace;
   padding: 2px;
   background-color: var(--code-background-color);
   color: var(--code-color);
