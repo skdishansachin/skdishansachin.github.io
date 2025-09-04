@@ -1,10 +1,10 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseHead from '@/components/BaseHead.astro';
 import FormattedDate from '@/components/FormattedDate.astro';
 import Header from '@/components/Header.astro';
 import Nav from '@/components/Nav.astro';
 import { SITE_DESCRIPTION } from '@/consts';
-import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => {
@@ -43,7 +43,7 @@ const filteredPosts = posts.filter((post) =>
         <Header>
             <Nav />
         </Header>
-        <h1>Posts tagged with "{tag}"</h1>
+        <h1>Posts tagged with <strong>"{tag}"</strong></h1>
         {
             filteredPosts.length === 0 ? (
                 <p>No posts found for this tag.</p>
@@ -67,6 +67,7 @@ const filteredPosts = posts.filter((post) =>
     h1 {
         font-size: 1.2rem;
         margin-bottom: 0;
+        font-weight: 400;
     }
 
     ul {
