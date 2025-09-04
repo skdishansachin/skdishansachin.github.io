@@ -116,7 +116,7 @@ footer {
 }
 
 .inline {
-  width: auto !important;
+  width: auto;
 }
 
 .highlight,

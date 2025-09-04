@@ -13,12 +13,15 @@ export async function getStaticPaths() {
 
   // Collect unique tags
   const tagSet = new Set<string>();
+
   for (const post of posts) {
-    (post.data.tags || []).forEach((tag) => tagSet.add(tag));
+    (post.data.tags || []).forEach((tag) => {
+      tagSet.add(tag);
+    });
   }
 
   return Array.from(tagSet).map((tag) => ({
-    params: { tag: tag },
+    params: { tag },
     props: { tag },
   }));
 }
