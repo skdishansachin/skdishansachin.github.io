@@ -24,7 +24,7 @@ const { title, description, pubDate, tags } = Astro.props;
         tags && (
           <div>
             {tags.sort().map((tag: string) => (
-              <a href={`/tags/${tag}`}>#{tag}</a>
+              <a href={`/tags/${tag}`} class="tag">#{tag}</a>
             ))}
           </div>
         )
@@ -36,5 +36,9 @@ const { title, description, pubDate, tags } = Astro.props;
 <style>
   h1 {
     font-size: 1.5rem;
+  }
+
+  .tag {
+    padding-right: 1rem;
   }
 </style>
