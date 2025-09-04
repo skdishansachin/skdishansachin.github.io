@@ -6,6 +6,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "format": "biome format --write",
+    "lint": "biome lint --write",
     "test": "vitest"
   },
   "dependencies": {
@@ -17,5 +19,8 @@
     "@fontsource-variable/geist-mono": "^5.2.6",
     "astro": "^5.13.1",
     "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.2.2"
   }
 }
