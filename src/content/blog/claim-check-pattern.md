@@ -1,5 +1,5 @@
 ---
-title: "The Claim Check Pattern"
+title: "The Claim Check Pattern (Processing large payloads efficiently)"
 description: "The Claim Check Pattern is an enterprise integration pattern (EIP) that helps handle the transport of large messages in a messaging system more efficiently."
 pubDate: 2025-09-02
 draft: false
@@ -8,7 +8,7 @@ tags:
   - "messaging"
 ---
 
-The Claim Check Pattern is an enterprise integration pattern that allows a system to send lightweight messages by replacing large or sensitive payloads with a reference (a "claim check"). The actual payload is stored in a shared, reliable datastore. Consumers of the message can use the claim check to retrieve the payload when needed.
+The Claim Check Pattern is an [enterprise integration pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/StoreInLibrary.html) that allows a system to send lightweight messages by replacing large or sensitive payloads with a reference (a "claim check"). The actual payload is stored in a shared, reliable datastore. Consumers of the message can use the claim check to retrieve the payload when needed.
 
 In other words, instead of passing a heavy box around, you pass around a receipt (the claim check) that lets you pick up the box from storage later.
 
@@ -44,4 +44,10 @@ If payloads are small, frequent, and critical to message context, a direct messa
 
 ## Conclusion
 
-The Claim Check Pattern is a powerful tool in the system architect’s toolbox. By separating heavy payloads from lightweight messages, it helps distributed systems achieve scalability, performance, and security. Like any pattern, it comes with trade-offs, but when applied in the right context—such as media pipelines, large-scale event systems, or IoT workloads—it can greatly improve system efficiency and reliability.
+The Claim Check Pattern is a powerful tool to know when designing systems. By separating heavy payloads from lightweight messages, it helps distributed systems achieve scalability, performance, and some level security. Like any pattern, it comes with trade-offs, but when applied in the right context it can greatly improve system efficiency and reliability.
+
+## Refrences
+
+- https://www.youtube.com/watch?v=X7ZXi5-upe8
+- https://learn.microsoft.com/en-us/azure/architecture/patterns/claim-check
+- https://newsletter.scalablethread.com/p/what-is-the-claim-check-pattern-in
